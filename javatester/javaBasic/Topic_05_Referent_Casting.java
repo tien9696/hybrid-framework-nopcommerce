@@ -4,7 +4,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
-public class Topic_06_Referent_Casting {
+public class Topic_05_Referent_Casting {
 	public String studentName;
 	
 	public String getStudentName() {
@@ -19,9 +19,9 @@ public class Topic_06_Referent_Casting {
 		System.out.println("Student name = " + studentName);
 	}
 	public static void main(String[] args) {
-		Topic_06_Referent_Casting firstStudent = new Topic_06_Referent_Casting();
+		Topic_05_Referent_Casting firstStudent = new Topic_05_Referent_Casting();
 		
-		Topic_06_Referent_Casting secondStudent = new Topic_06_Referent_Casting();
+		Topic_05_Referent_Casting secondStudent = new Topic_05_Referent_Casting();
 
 		firstStudent.setStudentName("Nguyen van nam");
 		secondStudent.setStudentName("Nguyen van long");
