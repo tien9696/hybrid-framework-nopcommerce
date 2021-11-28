@@ -1,24 +1,9 @@
 package javaBasic;
 
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-
-
-
-
-
 
 public class Topic_06_Excercise {
 	WebDriver driver;
@@ -111,6 +96,7 @@ public class Topic_06_Excercise {
 	
 	@Test
 	public void TC_06() {
+
 		float numberA = scanner.nextFloat();
 		
 		

@@ -26,8 +26,8 @@ public class Topic_06_If_else_if_else {
 	
 	
 
-	//@Parameters("browser")
-	//@Test
+	@Parameters("browser")
+	@Test
 	public void TC_01_If_Else_If_Else(String browserName){
 		if(browserName.equalsIgnoreCase("Chrome")) {
 		
