@@ -12,7 +12,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 
-public class Level_01_DRY {
+public class Level_01_Register_DRY {
 	WebDriver driver;
 	String projectPath = System.getProperty("user.dir");
 	String emailAddress;
