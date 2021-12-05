@@ -90,8 +90,8 @@ public class RegisterPageObject extends BasePage {
 	}
 
 	public String getErrorExistingEmailMessage() {
-		waitForElementVisible(driver, RegisterPageUI.EXISTING_EMIL_ERROR_MESSAGE);
-		return getWebElementText(driver, RegisterPageUI.EXISTING_EMIL_ERROR_MESSAGE);
+		waitForElementVisible(driver, RegisterPageUI.EXISTING_EMAIL_ERROR_MESSAGE);
+		return getWebElementText(driver, RegisterPageUI.EXISTING_EMAIL_ERROR_MESSAGE);
 	}
 
 	

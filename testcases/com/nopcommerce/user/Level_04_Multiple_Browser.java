@@ -25,7 +25,7 @@ public class Level_04_Multiple_Browser extends BaseTest {
 	// BasePage: Class
 	// basePage: Object
 
-	private WebDriver driverTestClass;
+	private WebDriver driver;
 	private String firstName, lastName, emailAddress, password;
 	private HomePageObject homePage;
 	private RegisterPageObject registerPage;
@@ -33,12 +33,9 @@ public class Level_04_Multiple_Browser extends BaseTest {
 	@Parameters("browser")
 	@BeforeClass
 	public void beforeClass(String browserName) {
-		// gọi đến cái khởi tạo driver tương ứng với browser name
-		System.out.println("Run on " + browserName);
-
-		driverTestClass = getBrowserDriver(browserName);
-
-		homePage = new HomePageObject(driverTestClass);
+        driver = getBrowserDriver(browserName);
+        homePage = new HomePageObject(driver);
+        
 		firstName = "Automation";
 		lastName = "Fc";
 		password = "123456";
@@ -50,7 +47,7 @@ public class Level_04_Multiple_Browser extends BaseTest {
 		System.out.println("Register_01 - Steps: 01 click to register link");
 		homePage.clickToRegisterLink();
 		// click register link > nhảy qua trang register
-		registerPage = new RegisterPageObject(driverTestClass);
+		registerPage = new RegisterPageObject(driver);
 
 		System.out.println("Register_01 - Steps: 02 click to register link");
 		registerPage.clickToRegisterButton();
@@ -67,7 +64,7 @@ public class Level_04_Multiple_Browser extends BaseTest {
 
 	@AfterClass
 	public void afterClass() {
-		driverTestClass.quit();
+		driver.quit();
 	}
 
 	public int generateFakeNumber() {

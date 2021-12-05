@@ -1,6 +1,7 @@
 package pageObjects;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 
 import commons.BasePage;
 import pageUIs.HomePageUI;
@@ -11,6 +12,7 @@ public class HomePageObject extends BasePage {
 	//ham khoi tao
 	public HomePageObject(WebDriver driver) {
 		this.driver = driver;
+
 	}
 	
 	

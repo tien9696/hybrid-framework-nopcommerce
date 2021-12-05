@@ -313,6 +313,12 @@ public class BasePage {
 		}
 	}
 
+	
+
+	public void waitForElementClickable(WebDriver driver, String xpathlocator) {
+		WebDriverWait explicitWait = new WebDriverWait(driver, longtimeout);
+		explicitWait.until(ExpectedConditions.elementToBeClickable(getByXpath(xpathlocator)));
+	}
 	public void waitForElementVisible(WebDriver driver, String xpathlocator) {
 		WebDriverWait explicitWait = new WebDriverWait(driver, longtimeout);
 		explicitWait.until(ExpectedConditions.visibilityOfElementLocated(getByXpath(xpathlocator)));
@@ -333,11 +339,6 @@ public class BasePage {
 		WebDriverWait explicitWait = new WebDriverWait(driver, longtimeout);
 		explicitWait.until(ExpectedConditions.visibilityOfAllElements(getListWebElement(driver, xpathlocator)));
 
-	}
-
-	public void waitForElementClickable(WebDriver driver, String xpathlocator) {
-		WebDriverWait explicitWait = new WebDriverWait(driver, longtimeout);
-		explicitWait.until(ExpectedConditions.elementToBeClickable(getByXpath(xpathlocator)));
 	}
 
 	private long longtimeout = 30;
