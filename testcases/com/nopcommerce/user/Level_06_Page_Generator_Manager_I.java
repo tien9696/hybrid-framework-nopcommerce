@@ -18,7 +18,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 
-public class Level_03_Page_Object_02_Login {
+public class Level_06_Page_Generator_Manager_I {
 	// BasePage: Class
 	// basePage: Object
 
