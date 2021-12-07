@@ -1,9 +1,9 @@
-package pageObjects;
+package pageObjects.nopcommerce;
 
 import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
-import pageUIs.RegisterPageUI;
+import pageUIs.nopcommerce.RegisterPageUI;
 
 public class RegisterPageObject extends BasePage {
 
@@ -89,7 +89,7 @@ public class RegisterPageObject extends BasePage {
 		// cachs 2
 		//return new HomePageObject(driver);
         //3
-		return PageGeneratorManager.getHomePage(driver);
+		return PageGeneratorManagernopcommerce.getHomePage(driver);
 		
 	}
 

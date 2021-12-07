@@ -10,11 +10,11 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
-import pageObjects.HomePageObject;
-import pageObjects.LoginPageObject;
-import pageObjects.MyAccountPageObject;
-import pageObjects.PageGeneratorManager;
-import pageObjects.RegisterPageObject;
+import pageObjects.nopcommerce.HomePageObject;
+import pageObjects.nopcommerce.LoginPageObject;
+import pageObjects.nopcommerce.MyAccountPageObject;
+import pageObjects.nopcommerce.PageGeneratorManagernopcommerce;
+import pageObjects.nopcommerce.RegisterPageObject;
 
 public class Level_06_Page_Generator_Manager_III extends BaseTest{
 	// BasePage: Class
@@ -27,7 +27,8 @@ public class Level_06_Page_Generator_Manager_III extends BaseTest{
 	@BeforeClass
 	public void beforeClass(String browserName) {
         driver = getBrowserDriver(browserName);
-        homePage = PageGeneratorManager.getHomePage(driver);
+        homePage = PageGeneratorManagernopcommerce.getHomePage(driver);
+		//driver.get("https://demo.nopcommerce.com/");
 
 		firstName = "Automation";
 		lastName = "Fc";

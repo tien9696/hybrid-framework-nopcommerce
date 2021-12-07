@@ -1,9 +1,9 @@
-package pageObjects;
+package pageObjects.nopcommerce;
 
 import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
-import pageUIs.HomePageUI;
+import pageUIs.nopcommerce.HomePageUI;
 
 public class MyAccountPageObject extends BasePage {
 	private WebDriver driver;
@@ -19,7 +19,7 @@ public class MyAccountPageObject extends BasePage {
 	public MyAccountPageObject clickToNewletterCheckbox() {
 		waitForElementClickable(driver, HomePageUI.NEWLETTER_LINK);
 		clickToElement(driver, HomePageUI.NEWLETTER_LINK);
-        		return PageGeneratorManager.getMyAccountPage(driver);
+        		return PageGeneratorManagernopcommerce.getMyAccountPage(driver);
 			
 	}
 	

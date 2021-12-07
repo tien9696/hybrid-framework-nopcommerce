@@ -1,8 +1,8 @@
-package pageObjects;
+package pageObjects.nopcommerce;
 
 import org.openqa.selenium.WebDriver;
 
-public class PageGeneratorManager {
+public class PageGeneratorManagernopcommerce {
 
 	public static HomePageObject getHomePage(WebDriver driver) {
 		return new HomePageObject(driver);
