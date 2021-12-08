@@ -2,10 +2,10 @@ package pageObjects.liveguru;
 
 import org.openqa.selenium.WebDriver;
 
-import pageObjects.nopcommerce.HomePageObject;
-import pageObjects.nopcommerce.LoginPageObject;
-import pageObjects.nopcommerce.MyAccountPageObject;
-import pageObjects.nopcommerce.RegisterPageObject;
+import pageObjects.nopCommerce.user.UserHomePageObject;
+import pageObjects.nopCommerce.user.UserLoginPageObject;
+import pageObjects.nopCommerce.user.UserMyAccountPageObject;
+import pageObjects.nopCommerce.user.UserRegisterPageObject;
 
 public class PageGeneratorManagerLiveguru {
 

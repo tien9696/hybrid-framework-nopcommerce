@@ -15,13 +15,13 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import pageObjects.nopcommerce.AddressPageObject;
-import pageObjects.nopcommerce.HomePageObject;
-import pageObjects.nopcommerce.OdersPageObject;
-import pageObjects.nopcommerce.PageGeneratorManagernopcommerce;
-import pageObjects.nopcommerce.RewardpointsPage;
-import pageUIs.nopcommerce.BasePageUIs;
-import pageUIs.nopcommerce.LoginPageUI;
+import pageObject.nopCommerce.admin.AdminLoginPageObject;
+import pageObjects.nopCommerce.user.UserAddressPageObject;
+import pageObjects.nopCommerce.user.UserHomePageObject;
+import pageObjects.nopCommerce.user.UserOdersPageObject;
+import pageObjects.nopCommerce.user.UserRewardpointsPage;
+import pageUIs.nopcommerce.User.BasePageUIs;
+import pageUIs.nopcommerce.User.LoginPageUI;
 
 public class BasePage {
 
@@ -350,23 +350,33 @@ public class BasePage {
 
 	}
 
-	public AddressPageObject openAddressPage(WebDriver driver) {
+	public UserAddressPageObject openAddressPage(WebDriver driver) {
 		waitForElementClickable(driver, BasePageUIs.ADDRESS_LINK);
 			clickToElement(driver, BasePageUIs.ADDRESS_LINK);
-			return PageGeneratorManagernopcommerce.getMyAdressPage(driver);
+			return PageGeneratorManagernopcommerce.getUserMyAdressPage(driver);
 		}	
 	
-	public OdersPageObject openOdersPage(WebDriver driver) {
+	public UserOdersPageObject openOdersPage(WebDriver driver) {
 		waitForElementClickable(driver, BasePageUIs.ODERS_LINK);
 			clickToElement(driver, BasePageUIs.ODERS_LINK);
-			return PageGeneratorManagernopcommerce.getOdersPage(driver);
+			return PageGeneratorManagernopcommerce.getUserodersPage(driver);
 		}	
-	public RewardpointsPage openRewardpointsPage(WebDriver driver) {
+	public UserRewardpointsPage openRewardpointsPage(WebDriver driver) {
 		waitForElementClickable(driver, BasePageUIs.REWARD_POINTS_LINK);
 			clickToElement(driver, BasePageUIs.REWARD_POINTS_LINK);
-			return PageGeneratorManagernopcommerce.getRewardpointsPage(driver);
+			return PageGeneratorManagernopcommerce.getUserRewardpointsPage(driver);
 		}	
 	
+	public UserHomePageObject clickToLogoutLinkAtUserPage(WebDriver driver) {
+		waitForElementClickable(driver, BasePageUIs.LOGOUT_LINK_AT_USER);
+		clickToElement(driver, BasePageUIs.LOGOUT_LINK_AT_USER);
+	   return PageGeneratorManagernopcommerce.getUserHomePageObject(driver);
+	}
+	public AdminLoginPageObject clickToLogoutLinkAtAdminPage(WebDriver driver) {
+		waitForElementClickable(driver, BasePageUIs.LOGOUT_LINK_AT_ADMIN);
+		clickToElement(driver, BasePageUIs.LOGOUT_LINK_AT_ADMIN);
+	    return PageGeneratorManagernopcommerce.getAdminLoginPageObject(driver);
+	}
 	private long longtimeout = 30;
 
 }

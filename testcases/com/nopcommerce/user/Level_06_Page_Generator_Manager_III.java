@@ -10,11 +10,11 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
-import pageObjects.nopcommerce.HomePageObject;
-import pageObjects.nopcommerce.LoginPageObject;
-import pageObjects.nopcommerce.MyAccountPageObject;
-import pageObjects.nopcommerce.PageGeneratorManagernopcommerce;
-import pageObjects.nopcommerce.RegisterPageObject;
+import commons.PageGeneratorManagernopcommerce;
+import pageObjects.nopCommerce.user.UserHomePageObject;
+import pageObjects.nopCommerce.user.UserLoginPageObject;
+import pageObjects.nopCommerce.user.UserMyAccountPageObject;
+import pageObjects.nopCommerce.user.UserRegisterPageObject;
 
 public class Level_06_Page_Generator_Manager_III extends BaseTest{
 	// BasePage: Class
@@ -27,7 +27,7 @@ public class Level_06_Page_Generator_Manager_III extends BaseTest{
 	@BeforeClass
 	public void beforeClass(String browserName) {
         driver = getBrowserDriver(browserName);
-        homePage = PageGeneratorManagernopcommerce.getHomePage(driver);
+        homePage = PageGeneratorManagernopcommerce.getUserHomePageObject(driver);
 		//driver.get("https://demo.nopcommerce.com/");
 
 		firstName = "Automation";
@@ -141,10 +141,10 @@ public class Level_06_Page_Generator_Manager_III extends BaseTest{
 	}
 	private WebDriver driver;
 	private String firstName, lastName, invalidEmail, notFoundEmail, existingEmail, validPassword, incorrectPassword;
-	private HomePageObject homePage;
-	private RegisterPageObject registerPage;
-	private MyAccountPageObject myAccountPage;
-    private LoginPageObject loginPage;
+	private UserHomePageObject homePage;
+	private UserRegisterPageObject registerPage;
+	private UserMyAccountPageObject myAccountPage;
+    private UserLoginPageObject loginPage;
 	
 	@AfterClass
 	public void afterClass() {

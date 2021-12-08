@@ -3,10 +3,10 @@ package pageObjects.liveguru;
 import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
-import pageObjects.nopcommerce.HomePageObject;
-import pageObjects.nopcommerce.PageGeneratorManagernopcommerce;
+import commons.PageGeneratorManagernopcommerce;
+import pageObjects.nopCommerce.user.UserHomePageObject;
 import pageUIs.liveguru.LoginPageUI;
-import pageUIs.nopcommerce.RegisterPageUI;
+import pageUIs.nopcommerce.User.RegisterPageUI;
 
 public class LoginPageObjectLiveguru extends BasePage {
 	private WebDriver driver;

@@ -11,16 +11,16 @@ import org.testng.annotations.Test;
 
 import commons.BasePage;
 import commons.BaseTest;
+import commons.PageGeneratorManagernopcommerce;
 import pageObjects.liveguru.DashBoardPageObjectLiveguru;
 import pageObjects.liveguru.HomePageObjectLiveguru;
 import pageObjects.liveguru.LoginPageObjectLiveguru;
 import pageObjects.liveguru.PageGeneratorManagerLiveguru;
 import pageObjects.liveguru.RegisterPageObjectLiveguru;
-import pageObjects.nopcommerce.HomePageObject;
-import pageObjects.nopcommerce.LoginPageObject;
-import pageObjects.nopcommerce.MyAccountPageObject;
-import pageObjects.nopcommerce.PageGeneratorManagernopcommerce;
-import pageObjects.nopcommerce.RegisterPageObject;
+import pageObjects.nopCommerce.user.UserHomePageObject;
+import pageObjects.nopCommerce.user.UserLoginPageObject;
+import pageObjects.nopCommerce.user.UserMyAccountPageObject;
+import pageObjects.nopCommerce.user.UserRegisterPageObject;
 
 public class Level_06_Liveguru extends BaseTest {
 	// BasePage: Class

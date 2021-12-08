@@ -4,13 +4,13 @@ import org.testng.annotations.Test;
 
 import commons.BasePage;
 import commons.BaseTest;
-import pageObjects.nopcommerce.AddressPageObject;
-import pageObjects.nopcommerce.HomePageObject;
-import pageObjects.nopcommerce.LoginPageObject;
-import pageObjects.nopcommerce.MyAccountPageObject;
-import pageObjects.nopcommerce.OdersPageObject;
-import pageObjects.nopcommerce.RegisterPageObject;
-import pageObjects.nopcommerce.RewardpointsPage;
+import pageObjects.nopCommerce.user.UserAddressPageObject;
+import pageObjects.nopCommerce.user.UserHomePageObject;
+import pageObjects.nopCommerce.user.UserLoginPageObject;
+import pageObjects.nopCommerce.user.UserMyAccountPageObject;
+import pageObjects.nopCommerce.user.UserOdersPageObject;
+import pageObjects.nopCommerce.user.UserRegisterPageObject;
+import pageObjects.nopCommerce.user.UserRewardpointsPage;
 
 import org.testng.annotations.BeforeClass;
 
@@ -33,7 +33,7 @@ public class Level_07_Switch_Page extends BaseTest {
 
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.get("https://demo.nopcommerce.com/");
-		homePage = new HomePageObject(driver);
+		homePage = new UserHomePageObject(driver);
 
 		firstName = "Automation";
 		lastName = "Fc";
@@ -110,16 +110,16 @@ public class Level_07_Switch_Page extends BaseTest {
 		driver.quit();
 	}
 
-	private MyAccountPageObject myAccountPage;
+	private UserMyAccountPageObject myAccountPage;
 	private WebDriver driver;
 	private String firstName, lastName, invalidEmail, notFoundEmail, existingEmail, validPassword, incorrectPassword;
 	// declare + init;
-	private HomePageObject homePage;
-	private RegisterPageObject registerPage;
-private AddressPageObject addressPage;
-	private LoginPageObject loginPage;
-	private OdersPageObject odersPage;
-	private RewardpointsPage rewardpointsPage;
+	private UserHomePageObject homePage;
+	private UserRegisterPageObject registerPage;
+private UserAddressPageObject addressPage;
+	private UserLoginPageObject loginPage;
+	private UserOdersPageObject odersPage;
+	private UserRewardpointsPage rewardpointsPage;
 
 
 	public int generateFakeNumber() {

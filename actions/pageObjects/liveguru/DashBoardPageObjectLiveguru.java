@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
 import pageUIs.liveguru.DashBoardUI;
-import pageUIs.nopcommerce.RegisterPageUI;
+import pageUIs.nopcommerce.User.RegisterPageUI;
 
 public class DashBoardPageObjectLiveguru extends BasePage {
 

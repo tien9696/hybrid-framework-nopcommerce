@@ -3,9 +3,9 @@ package com.nopcommerce.user;
 import org.testng.annotations.Test;
 
 import commons.BasePage;
-import pageObjects.nopcommerce.HomePageObject;
-import pageObjects.nopcommerce.LoginPageObject;
-import pageObjects.nopcommerce.RegisterPageObject;
+import pageObjects.nopCommerce.user.UserHomePageObject;
+import pageObjects.nopCommerce.user.UserLoginPageObject;
+import pageObjects.nopCommerce.user.UserRegisterPageObject;
 
 import org.testng.annotations.BeforeClass;
 
@@ -26,10 +26,10 @@ public class Level_06_Page_Generator_Manager_I {
 	private WebDriver driver;
 	private String firstName, lastName, invalidEmail, notFoundEmail, existingEmail, validPassword, incorrectPassword;
 	// declare + init;
-	private HomePageObject homePage;
-	private RegisterPageObject registerPage;
+	private UserHomePageObject homePage;
+	private UserRegisterPageObject registerPage;
 
-	private LoginPageObject loginPage;
+	private UserLoginPageObject loginPage;
 	private String projectPath = System.getProperty("user.dir");
 
 	@BeforeClass
@@ -41,7 +41,7 @@ public class Level_06_Page_Generator_Manager_I {
 
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.get("https://demo.nopcommerce.com/");
-		homePage = new HomePageObject(driver);
+		homePage = new UserHomePageObject(driver);
 
 		firstName = "Automation";
 		lastName = "Fc";
@@ -57,7 +57,7 @@ public class Level_06_Page_Generator_Manager_I {
 		System.out.println("Pre-condition - Steps: 01 click to register link");
 		homePage.clickToRegisterLink();
 		// click register link > nhảy qua trang register
-		registerPage = new RegisterPageObject(driver);
+		registerPage = new UserRegisterPageObject(driver);
 
 		System.out.println("Pre-condition - Steps: 02 Input to required fields");
 		registerPage.inputToFirstnameTextbox(firstName);
@@ -76,7 +76,7 @@ public class Level_06_Page_Generator_Manager_I {
 		registerPage.clickToLogoutLink();
 
 		// click logout thì business sẽ quay về trang home
-		homePage = new HomePageObject(driver);
+		homePage = new UserHomePageObject(driver);
 
 	}
 
@@ -85,7 +85,7 @@ public class Level_06_Page_Generator_Manager_I {
 
 		homePage.clickToLoginLink();
 		// từ trang home > click LoginLink > qua trang login
-		loginPage = new LoginPageObject(driver);
+		loginPage = new UserLoginPageObject(driver);
 		loginPage.clickToLoginButton();
 
 		// nên cho vao Assert trước khi create để code tạo sẵn String
@@ -96,7 +96,7 @@ public class Level_06_Page_Generator_Manager_I {
 	@Test
 	public void Login_02_Invalid_Email() {
 		homePage.clickToLoginLink();
-		loginPage = new LoginPageObject(driver);
+		loginPage = new UserLoginPageObject(driver);
 
 		loginPage.inputToEmailTextbox(invalidEmail);
 		loginPage.clickToLoginButton();
@@ -107,7 +107,7 @@ public class Level_06_Page_Generator_Manager_I {
 	@Test
 	public void Login_03_Email_Not_Found() {
 		homePage.clickToLoginLink();
-		loginPage = new LoginPageObject(driver);
+		loginPage = new UserLoginPageObject(driver);
 
 		loginPage.inputToEmailTextbox(notFoundEmail);
 
@@ -119,7 +119,7 @@ public class Level_06_Page_Generator_Manager_I {
 	@Test
 	public void Login_04_Existing_Email_Empty_Paswsword() {
 		homePage.clickToLoginLink();
-		loginPage = new LoginPageObject(driver);
+		loginPage = new UserLoginPageObject(driver);
 
 		loginPage.inputToEmailTextbox(existingEmail);
 		loginPage.inputToPasswordTextbox("");
@@ -133,7 +133,7 @@ public class Level_06_Page_Generator_Manager_I {
 	public void Login_05_Existing_Email_Invalid_Password() {
 
 		homePage.clickToLoginLink();
-		loginPage = new LoginPageObject(driver);
+		loginPage = new UserLoginPageObject(driver);
 
 		loginPage.inputToEmailTextbox(existingEmail);
 		loginPage.inputToPasswordTextbox(incorrectPassword);
@@ -146,14 +146,14 @@ public class Level_06_Page_Generator_Manager_I {
 	@Test
 	public void Login_06_Success_Valid_Email_And_Pasword() {
 		homePage.clickToLoginLink();
-		loginPage = new LoginPageObject(driver);
+		loginPage = new UserLoginPageObject(driver);
 
 		loginPage.inputToEmailTextbox(existingEmail);
 		loginPage.inputToPasswordTextbox(validPassword);
 
 		loginPage.clickToLoginButton();
 		// login thành công sẽ qua trang homePage;
-		homePage = new HomePageObject(driver);
+		homePage = new UserHomePageObject(driver);
 
 		Assert.assertTrue(homePage.isMyAccountLinkDisplayed());
 	}
