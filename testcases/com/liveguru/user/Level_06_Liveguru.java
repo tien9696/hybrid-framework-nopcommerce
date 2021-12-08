@@ -22,7 +22,7 @@ import pageObjects.nopcommerce.MyAccountPageObject;
 import pageObjects.nopcommerce.PageGeneratorManagernopcommerce;
 import pageObjects.nopcommerce.RegisterPageObject;
 
-public class Level_06_Page_Generator_Manager_III extends BaseTest {
+public class Level_06_Liveguru extends BaseTest {
 	// BasePage: Class
 	// basePage: Object
 

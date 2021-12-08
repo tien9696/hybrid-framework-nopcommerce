@@ -15,6 +15,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import pageObjects.nopcommerce.AddressPageObject;
+import pageObjects.nopcommerce.HomePageObject;
+import pageObjects.nopcommerce.OdersPageObject;
+import pageObjects.nopcommerce.PageGeneratorManagernopcommerce;
+import pageObjects.nopcommerce.RewardpointsPage;
+import pageUIs.nopcommerce.BasePageUIs;
+import pageUIs.nopcommerce.LoginPageUI;
+
 public class BasePage {
 
 	public static BasePage getBasePageObject() {
@@ -303,6 +311,7 @@ public class BasePage {
 		return (String) jsExecutor.executeScript("return arguments[0].validationMessage;", getWebElement(driver, xpathlocator));
 	}
 
+
 	public boolean isImageLoaded(WebDriver driver, String xpathlocator) {
 		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
 		boolean status = (boolean) jsExecutor.executeScript("return arguments[0].complete && typeof arguments[0].naturalWidth != \"undefined\" && arguments[0].naturalWidth > 0", getWebElement(driver, xpathlocator));
@@ -341,6 +350,23 @@ public class BasePage {
 
 	}
 
+	public AddressPageObject openAddressPage(WebDriver driver) {
+		waitForElementClickable(driver, BasePageUIs.ADDRESS_LINK);
+			clickToElement(driver, BasePageUIs.ADDRESS_LINK);
+			return PageGeneratorManagernopcommerce.getMyAdressPage(driver);
+		}	
+	
+	public OdersPageObject openOdersPage(WebDriver driver) {
+		waitForElementClickable(driver, BasePageUIs.ODERS_LINK);
+			clickToElement(driver, BasePageUIs.ODERS_LINK);
+			return PageGeneratorManagernopcommerce.getOdersPage(driver);
+		}	
+	public RewardpointsPage openRewardpointsPage(WebDriver driver) {
+		waitForElementClickable(driver, BasePageUIs.REWARD_POINTS_LINK);
+			clickToElement(driver, BasePageUIs.REWARD_POINTS_LINK);
+			return PageGeneratorManagernopcommerce.getRewardpointsPage(driver);
+		}	
+	
 	private long longtimeout = 30;
 
 }
