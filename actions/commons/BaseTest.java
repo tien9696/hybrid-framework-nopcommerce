@@ -9,20 +9,24 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import javaOOP.BrowserList;
 
 public class BaseTest {
 
+	
+	
 	private WebDriver driverBaseTest;
 	private String projectPath = System.getProperty("user.dir");
 
 	protected WebDriver getBrowserDriver(String browserName) {
-		if (browserName.equals("firefox")) {
+		BrowserList browserList = BrowserList.valueOf(browserName.toUpperCase());
+		if (browserList == BrowserList.FIREFOX) {
 			WebDriverManager.firefoxdriver().setup();
 			driverBaseTest = new FirefoxDriver();
-		} else if (browserName.equals("chrome")) {
+		} else if (browserList == BrowserList.CHROME) {
 			WebDriverManager.chromedriver().setup();
 			driverBaseTest = new ChromeDriver();
-		} else if (browserName.equals("edge")) {
+		} else if (browserList == BrowserList.EDGE) {
 			WebDriverManager.edgedriver().setup();
 			driverBaseTest = new EdgeDriver();
 

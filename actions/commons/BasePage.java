@@ -9,6 +9,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -22,6 +23,7 @@ import pageObjects.nopCommerce.user.UserOdersPageObject;
 import pageObjects.nopCommerce.user.UserRewardpointsPage;
 import pageUIs.nopcommerce.User.BasePageUIs;
 import pageUIs.nopcommerce.User.LoginPageUI;
+import org.openqa.selenium.Keys;
 
 public class BasePage {
 
@@ -29,6 +31,8 @@ public class BasePage {
 		return new BasePage();
 	}
 
+	
+	
 	// Mở ra 1 Url bất kì
 	public void openPageUrl(WebDriver driver, String pageUrl) {
 		driver.get(pageUrl);
@@ -429,6 +433,10 @@ public class BasePage {
 		explicitWait.until(ExpectedConditions.visibilityOfAllElements(getListWebElement(driver, locatorType)));
 
 	}
+	
+	
+	
+	
 
 	public UserAddressPageObject openAddressPage(WebDriver driver) {
 		waitForElementClickable(driver, BasePageUIs.ADDRESS_LINK);
