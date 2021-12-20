@@ -14,7 +14,11 @@ public class AdminDashBoardPageObject extends BasePage {
 	}
 
 	public boolean isDashBoardHeaderDisplayed() {
+		waitForElementVisible(driver, AdminDashBoardPageUI.HEADER_DASHBOARD);
 		return isElementDisplayed(driver, AdminDashBoardPageUI.HEADER_DASHBOARD);
 	}
+
+	
+	
 	
 }

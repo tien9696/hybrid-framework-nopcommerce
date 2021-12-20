@@ -35,8 +35,7 @@ public class BaseTest {
 		}
 		driverBaseTest.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
-		driverBaseTest.get(GlobalConstants.POTAL_PAGE_URL);
-		//driverBaseTest.get("http://live.techpanda.org/");
+		driverBaseTest.get(GlobalConstants.REGISTER_FACEBOOK);
 
 		return driverBaseTest;
 	}

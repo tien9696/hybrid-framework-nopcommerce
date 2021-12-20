@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 
 import pageObject.nopCommerce.admin.AdminDashBoardPageObject;
 import pageObject.nopCommerce.admin.AdminLoginPageObject;
+import pageObject.nopCommerce.admin.AdminProductDetailsPageObject;
+import pageObject.nopCommerce.admin.AdminProductSearchPageObject;
 import pageObjects.nopCommerce.user.UserAddressPageObject;
 import pageObjects.nopCommerce.user.UserHomePageObject;
 import pageObjects.nopCommerce.user.UserLoginPageObject;
@@ -40,23 +42,26 @@ public class PageGeneratorManagernopcommerce {
 		return new UserOdersPageObject(driver);
 	}
 
+	public static UserHomePageObject getUserHomePageObject(WebDriver driver) {
+		return new UserHomePageObject(driver);
+	}
 	
 
 	public static AdminDashBoardPageObject getMyDashBoardPage(WebDriver driver) {
 		return new AdminDashBoardPageObject(driver);
 	}
 
-	public static UserHomePageObject getUserHomePageObject(WebDriver driver) {
-		return new UserHomePageObject(driver);
-	}
-
 	public static AdminLoginPageObject getAdminLoginPageObject(WebDriver driver) {
 		return new AdminLoginPageObject(driver);
 	}
 	
-	
+	public static AdminProductSearchPageObject getAdminProductSearchPageObject(WebDriver driver) {
+		return new AdminProductSearchPageObject(driver);
+	}
 
-
+	public static AdminProductDetailsPageObject getAdminProductDetailsPageObject(WebDriver driver) {
+		return new AdminProductDetailsPageObject(driver);
+	}
 	
 
 	
