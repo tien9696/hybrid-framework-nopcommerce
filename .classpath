@@ -43,5 +43,7 @@
 	<classpathentry kind="lib" path="libWebDriverManager5/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar"/>
 	<classpathentry kind="lib" path="libWebDriverManager5/slf4j-api-1.7.32.jar"/>
 	<classpathentry kind="lib" path="libWebDriverManager5/webdrivermanager-5.0.2.jar"/>
+	<classpathentry kind="lib" path="libLogging/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="libLogging/log4j-1.2.16.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
