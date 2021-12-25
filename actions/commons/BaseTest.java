@@ -17,15 +17,14 @@ import javaOOP.BrowserList;
 
 public class BaseTest {
 
-	
-	
 	private WebDriver driverBaseTest;
-	
+
 	protected final Log log;
+
 	protected BaseTest() {
 		log = LogFactory.getLog(getClass());
 	}
-	
+
 	private String projectPath = System.getProperty("user.dir");
 
 	protected WebDriver getBrowserDriver(String browserName) {
@@ -40,12 +39,12 @@ public class BaseTest {
 			WebDriverManager.edgedriver().setup();
 			driverBaseTest = new EdgeDriver();
 
-		}  else {
+		} else {
 			throw new RuntimeException("Browser name invalid");
 		}
 		driverBaseTest.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
-		driverBaseTest.get(GlobalConstants.REGISTER_FACEBOOK);
+		driverBaseTest.get(GlobalConstants.POTAL_PAGE_URL);
 
 		return driverBaseTest;
 	}
@@ -62,7 +61,7 @@ public class BaseTest {
 		} catch (Throwable e) {
 			pass = false;
 
-			// Add lỗi vào ReportNG
+		
 			VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
 			Reporter.getCurrentTestResult().setThrowable(e);
 		}
@@ -111,5 +110,5 @@ public class BaseTest {
 	protected boolean verifyEquals(Object actual, Object expected) {
 		return checkEquals(actual, expected);
 	}
-	
+
 }

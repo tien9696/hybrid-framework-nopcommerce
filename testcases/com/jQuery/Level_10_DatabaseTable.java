@@ -2,7 +2,7 @@ package com.jQuery;
 
 import org.testng.annotations.Test;
 
-import com.sun.tools.javac.comp.Enter;
+//import com.sun.tools.javac.comp.Enter;
 
 import commons.BasePage;
 import commons.BaseTest;
@@ -93,7 +93,7 @@ public class Level_10_DatabaseTable extends BaseTest {
 
 	// @Test
 	public void Table_04_() {
-		// c√°ch 1
+		// c·ch 1
 		homePage.inputToTextboxByRowNumber("Contact Person", "3", "jonh Deep");
 		homePage.sleepInsecond(3);
 
@@ -103,7 +103,7 @@ public class Level_10_DatabaseTable extends BaseTest {
 		homePage.inputToTextboxByRowNumber("Company", "1", "jonh");
 		homePage.sleepInsecond(3);
 
-		// c√°ch 2
+		// c·ch 2
 		homePage.inputToTextbox("name", "1", "hihi");
 		homePage.sleepInsecond(3);
 

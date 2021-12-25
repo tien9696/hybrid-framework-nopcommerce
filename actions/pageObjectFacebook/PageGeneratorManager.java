@@ -22,6 +22,8 @@ public class PageGeneratorManager {
 	public static RegisterPageObject getRegisterPage(WebDriver driver) {
 			return new RegisterPageObject(driver);
 		}
+	
+	
 	}
 	
 
