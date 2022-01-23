@@ -32,8 +32,9 @@ import org.testng.annotations.AfterClass;
 
 public class Level_10_DatabaseTable extends BaseTest {
 	private String projectPath = System.getProperty("user.dir");
-	List<String> allCountryValue;
-	
+	List<String> actualAllCountryValue;
+	List<String> expectedAllCountryValue;
+
 
 	@BeforeClass
 	public void beforeClass() {
@@ -42,7 +43,7 @@ public class Level_10_DatabaseTable extends BaseTest {
 		driver = new FirefoxDriver();
 	
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		driver.get("https://www.jqueryscript.net/demo/CRUD-Data-Grid-Plugin-jQuery-Quickgrid/");
+		driver.get("https://www.jqueryscript.net/demo/jQuery-Dynamic-Data-Grid-Plugin-appendGrid/");
 
 		homePage = PageGeneratorManagerjQuery.getHomePage(driver);
 	}
@@ -78,12 +79,58 @@ public class Level_10_DatabaseTable extends BaseTest {
 
 	}
 
-	@Test
+	//@Test
 	public void Table_03_Enter_To_Header() {
-		allCountryValue = homePage.getValueEachRowAllPage();
+		//đọc dữ liệu của file country.txt ra
+		//lưu vào list string = expectedvalue
 		
+		
+		actualAllCountryValue = homePage.getValueEachRowAllPage();
+		Assert.assertEquals(actualAllCountryValue, expectedAllCountryValue);
 	}
 
+	@Test
+	public void Table_04_Action_At_Any_Row() {
+		//value để nhập dữ liêu
+		//row number: tại row nào
+		// example: nhập vào textbox dòng 3,5,7... (td:cột , tr:dòng, thead: header, tbody: chứa row...)
+		//column name: album/ artist/ year/ 
+		
+		homePage.clickToLoadButton();
+		homePage.sleepInsecond(5);
+		
+		
+		
+		
+//		homePage.enterToTexxtBoxAtRowNumberByColumnName("Album", "2", "Michael 97" );
+//		
+//		homePage.enterToTexxtBoxAtRowNumberByColumnName("Artist", "4", "Michael Wai" );
+//
+//		homePage.enterToTexxtBoxAtRowNumberByColumnName("Year", "3", "1993" );
+//
+//		homePage.enterToTexxtBoxAtRowNumberByColumnName("Price", "2", "132" );
+//
+//		homePage.selectDropdownByColumnNameAtRowNumber("Origin", "5", "Korea" );
+//	homePage.sleepInsecond(3);
+//	//homePage.selectDropdownByColumnNameAtRowNumber("Origin", "1", "Japan" );
+//
+//	homePage.checkToCheckboxByColumnNameAtRowNumber("With Poster?", "3");
+//	
+//	
+//	homePage.checkToCheckboxByColumnNameAtRowNumber("With Poster?", "5");
+//
+//	
+//	homePage.unCheckToCheckboxByColumnNameAtRowNumber("With Poster?", "1");
+//	homePage.unCheckToCheckboxByColumnNameAtRowNumber("With Poster?", "2");
+//	homePage.unCheckToCheckboxByColumnNameAtRowNumber("With Poster?", "4");
+
+	homePage.clickToByRowNumber("1", "Remove Current Row");
+	homePage.clickToByRowNumber("3", "Move Up");
+	homePage.clickToByRowNumber("4", "Move Down");
+
+	homePage.clickToByRowNumber("3", "Remove Current Row");
+
+	}
 	
 	// @Test
 	public void Table_04_Click_To_Icon() {
