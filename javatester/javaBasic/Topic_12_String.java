@@ -18,36 +18,36 @@ public class Topic_12_String {
 
 		String SchoolAddress = "Da Nang";
 
-		System.out.println("Độ dài = " + SchoolName.length());
-		System.out.println("lây sra 1 lí tự = " + SchoolName.charAt(0));
-		System.out.println("Nối 2 chuỗi = " + SchoolName + (SchoolAddress));
+		System.out.println("Ä�á»™ dÃ i = " + SchoolName.length());
+		System.out.println("lÃ¢y sra 1 lÃ­ tá»± = " + SchoolName.charAt(0));
+		System.out.println("Ná»‘i 2 chuá»—i = " + SchoolName + (SchoolAddress));
 
-		System.out.println("Kiểm tra 2 chuỗi bằng nhau tuyệt đối = " + SchoolName.equals(SchoolAddress));
-		System.out.println("Kiểm tra 2 chuỗi bằng nhau tuyệt đối = " + SchoolName.equals("Automation Teting Advanced"));
-		// ko phân biêt hoa thường (Multi Browser)
-		System.out.println("Kiểm tra 2 chuỗi bằng nhau tương đối = " + SchoolName.equalsIgnoreCase(CourseName));
+		System.out.println("Kiá»ƒm tra 2 chuá»—i báº±ng nhau tuyá»‡t Ä‘á»‘i = " + SchoolName.equals(SchoolAddress));
+		System.out.println("Kiá»ƒm tra 2 chuá»—i báº±ng nhau tuyá»‡t Ä‘á»‘i = " + SchoolName.equals("Automation Teting Advanced"));
+		// ko phÃ¢n biÃªt hoa thÆ°á»�ng (Multi Browser)
+		System.out.println("Kiá»ƒm tra 2 chuá»—i báº±ng nhau tÆ°Æ¡ng Ä‘á»‘i = " + SchoolName.equalsIgnoreCase(CourseName));
 
 		// startwith/ endwith/ contains
-		System.out.println("có bắt đầu bằng 1 kí tự/ chuỗi kí tự = " + SchoolName.startsWith("A"));
-		System.out.println("có bắt đầu bằng 1 kí tự/ chuỗi kí tự = " + SchoolName.startsWith("T"));
+		System.out.println("cÃ³ báº¯t Ä‘áº§u báº±ng 1 kÃ­ tá»±/ chuá»—i kÃ­ tá»± = " + SchoolName.startsWith("A"));
+		System.out.println("cÃ³ báº¯t Ä‘áº§u báº±ng 1 kÃ­ tá»±/ chuá»—i kÃ­ tá»± = " + SchoolName.startsWith("T"));
 
-		System.out.println("có chứa 1 kí tự/ chuỗi kí tự = " + SchoolName.contains("Auto"));
-		System.out.println("có chứa 1 kí tự/ chuỗi kí tự = " + SchoolName.contains("Testing"));
+		System.out.println("cÃ³ chá»©a 1 kÃ­ tá»±/ chuá»—i kÃ­ tá»± = " + SchoolName.contains("Auto"));
+		System.out.println("cÃ³ chá»©a 1 kÃ­ tá»±/ chuá»—i kÃ­ tá»± = " + SchoolName.contains("Testing"));
 
-		System.out.println("có kết thúc bằng 1 kí tự/ chuỗi kí tự = " + SchoolName.endsWith("T"));
-		System.out.println("có kết thúc bằng 1 kí tự/ chuỗi kí tự = " + SchoolName.endsWith("d"));
-		System.out.println("có kết thúc bằng 1 kí tự/ chuỗi kí tự = " + SchoolName.endsWith("Advanced"));
+		System.out.println("cÃ³ káº¿t thÃºc báº±ng 1 kÃ­ tá»±/ chuá»—i kÃ­ tá»± = " + SchoolName.endsWith("T"));
+		System.out.println("cÃ³ káº¿t thÃºc báº±ng 1 kÃ­ tá»±/ chuá»—i kÃ­ tá»± = " + SchoolName.endsWith("d"));
+		System.out.println("cÃ³ káº¿t thÃºc báº±ng 1 kÃ­ tá»±/ chuá»—i kÃ­ tá»± = " + SchoolName.endsWith("Advanced"));
 
 		// index
-		System.out.println("Vin trí của 1 kí tự/ chuỗi kí tự trong chuỗi  = " + SchoolName.indexOf("Automation"));
-		System.out.println("Vin trí của 1 kí tự/ chuỗi kí tự trong chuỗi  = " + SchoolName.indexOf("A"));
-		System.out.println("Vin trí của 1 kí tự/ chuỗi kí tự trong chuỗi  = " + SchoolName.indexOf("Testing"));
+		System.out.println("Vin trÃ­ cá»§a 1 kÃ­ tá»±/ chuá»—i kÃ­ tá»± trong chuá»—i  = " + SchoolName.indexOf("Automation"));
+		System.out.println("Vin trÃ­ cá»§a 1 kÃ­ tá»±/ chuá»—i kÃ­ tá»± trong chuá»—i  = " + SchoolName.indexOf("A"));
+		System.out.println("Vin trÃ­ cá»§a 1 kÃ­ tá»±/ chuá»—i kÃ­ tá»± trong chuá»—i  = " + SchoolName.indexOf("Testing"));
 
 		//
-		System.out.println("Tách 1 kí tự/ chuỗi kí tự trong chuỗi  = " + SchoolName.substring(11));
-		System.out.println("Tách 1 kí tự/ chuỗi kí tự trong chuỗi  = " + SchoolName.substring(11, 15));
+		System.out.println("TÃ¡ch 1 kÃ­ tá»±/ chuá»—i kÃ­ tá»± trong chuá»—i  = " + SchoolName.substring(11));
+		System.out.println("TÃ¡ch 1 kÃ­ tá»±/ chuá»—i kÃ­ tá»± trong chuá»—i  = " + SchoolName.substring(11, 15));
 
-		// split : tách chuỗi thành mảng dựa vào kí tự hoặc chuỗi kí tự
+		// split : tÃ¡ch chuá»—i thÃ nh máº£ng dá»±a vÃ o kÃ­ tá»± hoáº·c chuá»—i kÃ­ tá»±
 		String result = "view 48 of 123 results";
 		String results[] = result.split(" ");
 
@@ -60,7 +60,7 @@ public class Topic_12_String {
 		productPrice.replace("$", " ");
 		System.out.println(productPrice);
 
-		// Sắp xếp nó: sort data (Asc/ Desc)
+		// Sáº¯p xáº¿p nÃ³: sort data (Asc/ Desc)
 		float productPriceF = Float.parseFloat(productPrice);
 		System.out.println(productPriceF);
 
@@ -83,7 +83,7 @@ public class Topic_12_String {
 
 		// close browser/ driver
 		// if(driverInstanceName.contains("internetexplorer")) {
-		// sleep cứng thêm 5s chuyển page
+		// sleep cá»©ng thÃªm 5s chuyá»ƒn page
 		// }
 
 		// trim
@@ -93,11 +93,11 @@ public class Topic_12_String {
 
 		helloWorld = " ";
 		System.out.println("Empty = " + helloWorld.isEmpty());
-		// Blank vẫn chứa kí tự thì true
-		System.out.println("Blank = " + helloWorld.isBlank());
+		// Blank váº«n chá»©a kÃ­ tá»± thÃ¬ true
+		System.out.println("Blank = " + helloWorld.isEmpty());
 
 		// Dynamic locator
-		// ĐẠi diện cho 1 chuỗi : %s
+		// Ä�áº i diá»‡n cho 1 chuá»—i : %s
 		// %b %c %d
 		String dynamicButonXpath = "button[@id='%s']";
 		System.out.println("click to login button = " + String.format(dynamicButonXpath, "Login"));

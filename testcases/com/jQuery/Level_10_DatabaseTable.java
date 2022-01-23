@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import commons.BasePage;
 import commons.BaseTest;
 import commons.PageGeneratorManagernopcommerce;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import pageObject.jQuery.HomePageObject;
 import pageObject.jQuery.PageGeneratorManagerjQuery;
 import pageObjects.nopCommerce.user.UserAddressPageObject;
@@ -19,6 +20,7 @@ import pageObjects.nopCommerce.user.UserRewardpointsPage;
 
 import org.testng.annotations.BeforeClass;
 
+import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -30,19 +32,22 @@ import org.testng.annotations.AfterClass;
 
 public class Level_10_DatabaseTable extends BaseTest {
 	private String projectPath = System.getProperty("user.dir");
+	List<String> allCountryValue;
+	
 
 	@BeforeClass
 	public void beforeClass() {
 		System.setProperty("webdriver.gecko.driver", projectPath + "\\BrowserDriver\\geckodriver.exe");
+		WebDriverManager.firefoxdriver().setup();
 		driver = new FirefoxDriver();
-
+	
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		driver.get("https://www.jqueryscript.net/demo/jQuery-Dynamic-Data-Grid-Plugin-appendGrid/");
+		driver.get("https://www.jqueryscript.net/demo/CRUD-Data-Grid-Plugin-jQuery-Quickgrid/");
 
 		homePage = PageGeneratorManagerjQuery.getHomePage(driver);
 	}
 
-	// @Test
+	//@Test
 	public void Table_01_Paging() {
 
 		homePage.openPageByNumber("15");
@@ -56,7 +61,7 @@ public class Level_10_DatabaseTable extends BaseTest {
 
 	}
 
-	// @Test
+	//@Test
 	public void Table_02_Actions() {
 
 		homePage.inputToSearchTextbox("Females", "56746000");
@@ -73,8 +78,15 @@ public class Level_10_DatabaseTable extends BaseTest {
 
 	}
 
+	@Test
+	public void Table_03_Enter_To_Header() {
+		allCountryValue = homePage.getValueEachRowAllPage();
+		
+	}
+
+	
 	// @Test
-	public void Table_03_Click_To_Icon() {
+	public void Table_04_Click_To_Icon() {
 
 		homePage.clickToIconByCountryName("Afghanistan", "remove");
 		homePage.sleepInsecond(3);
@@ -91,9 +103,10 @@ public class Level_10_DatabaseTable extends BaseTest {
 
 	}
 
-	// @Test
-	public void Table_04_() {
-		// cách 1
+	//@Test
+	//á»Ÿ 1 web khÃ¡c
+	public void Table_05_() {
+		// cï¿½ch 1
 		homePage.inputToTextboxByRowNumber("Contact Person", "3", "jonh Deep");
 		homePage.sleepInsecond(3);
 
@@ -103,7 +116,7 @@ public class Level_10_DatabaseTable extends BaseTest {
 		homePage.inputToTextboxByRowNumber("Company", "1", "jonh");
 		homePage.sleepInsecond(3);
 
-		// cách 2
+		// cï¿½ch 2
 		homePage.inputToTextbox("name", "1", "hihi");
 		homePage.sleepInsecond(3);
 
@@ -117,8 +130,8 @@ public class Level_10_DatabaseTable extends BaseTest {
 		// homePage.sleepInsecond(3);
 	}
 
-	@Test
-	public void Table_05_Click_To_Icon_At_Row() {
+	//@Test
+	public void Table_06_Click_To_Icon_At_Row() {
 
 		homePage.clickToIconByRowName("2", "Move Up");
 		homePage.sleepInsecond(3);

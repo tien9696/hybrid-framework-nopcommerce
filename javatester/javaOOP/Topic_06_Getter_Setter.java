@@ -12,7 +12,7 @@ public class Topic_06_Getter_Setter {
 	}
 
 	public void setPersonName(String personName) {
-		if (personName == null || personName.isEmpty() || personName.isBlank()) {
+		if (personName == null || personName.isEmpty() || personName.isEmpty()) {
 
 			throw new IllegalArgumentException("Tên nhập vào không được bỏ trống");
 

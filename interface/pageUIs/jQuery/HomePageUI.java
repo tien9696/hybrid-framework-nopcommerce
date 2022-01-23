@@ -13,5 +13,8 @@ public class HomePageUI {
 	public static final String TEXTBOX_BY_COLUM_ROW_INDEX = "xpath=//tr[%s]/td[%s]/input";
 
 	public static final String BUTTON_ACTION_BY_ROW_INDEX = "xpath=//tr[@id][%s]//button[@title='%s']";
+	public static final String TOTAL_PAGINATION = "xpath=//ul[@class='qgrd-pagination-ul']/li[@class='qgrd-pagination-page']";
+	public static final String PAGINATION_PAGE_INDEX = "xpath=//ul[@class='qgrd-pagination-ul']/li[@class='qgrd-pagination-page'][%s]/a";
+	public static final String ALL_ROW_EACH_PAGE = "xpath=//tbody//tr";
 
 }

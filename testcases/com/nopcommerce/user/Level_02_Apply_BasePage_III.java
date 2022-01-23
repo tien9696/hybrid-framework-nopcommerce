@@ -3,6 +3,7 @@ package com.nopcommerce.user;
 import org.testng.annotations.Test;
 
 import commons.BasePage;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 import org.testng.annotations.BeforeClass;
 
@@ -25,7 +26,10 @@ public class Level_02_Apply_BasePage_III extends BasePage {
 	@BeforeClass
 	public void beforeClass() {
 		System.setProperty("webdriver.gecko.driver", projectPath + "\\BrowserDriver\\geckodriver.exe");
+		WebDriverManager.firefoxdriver().setup();
 		driver = new FirefoxDriver();
+	
+		//driver = new FirefoxDriver();
 
 		//basePage = new BasePage();
 

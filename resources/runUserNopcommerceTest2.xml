@@ -3,10 +3,10 @@
 <suite name="User - NopCommerce">
 
 
-	<test name="Run On Firefox">
-		<parameter name="browser" value="firefox" />
+	<test name="Run On Chrome">
+		<parameter name="browser" value="chrome" />
 		<classes>
-			<class name="com.nopcommerce.user.Level_09_Dynamic_Locator" />
+			<class name="com.nopcommerce.user.Level_13_Register_Login_Log_Report" />
 		</classes>
 	</test>
 

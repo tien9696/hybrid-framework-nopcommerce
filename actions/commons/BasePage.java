@@ -121,7 +121,7 @@ public class BasePage {
 	// locator Type: ID=/ CSS=/ XPATH=/ NAME=/ CLASS=/
 	// locator Type: Id=/ Css=/ Xpath=/ Name=/ Class=/
 
-	private By getByLocator(String locatorType) {
+	public By getByLocator(String locatorType) {
 		By by = null;
 		System.out.println("Locator type = " + locatorType);
 		if (locatorType.startsWith("id=") || locatorType.startsWith("ID=") || locatorType.startsWith("Id=")) {
@@ -141,7 +141,7 @@ public class BasePage {
 
 	}
 
-	private String getDynamicLocator(String locatorType, String... dynamicValues) {
+	public String getDynamicLocator(String locatorType, String... dynamicValues) {
 		if (locatorType.startsWith("xpath=") || locatorType.startsWith("XPATH=") || locatorType.startsWith("Xpath=")) {
 			locatorType = String.format(locatorType, (Object[]) dynamicValues);
 		}
@@ -149,7 +149,7 @@ public class BasePage {
 
 	}
 
-	private WebElement getElement(WebDriver driver, String locatorType) {
+	public WebElement getElement(WebDriver driver, String locatorType) {
 		return driver.findElement(getByLocator(locatorType));
 	}
 
@@ -157,7 +157,7 @@ public class BasePage {
 		return driver.findElement(getByLocator(getDynamicLocator(locatorType, dynamicValues)));
 	}
 	
-	private List<WebElement> getListWebElement(WebDriver driver, String locatorType) {
+	public List<WebElement> getListWebElement(WebDriver driver, String locatorType) {
 		return driver.findElements(getByLocator(locatorType));
 
 	}
@@ -366,7 +366,15 @@ public boolean isElementUnDisplayed(WebDriver driver, String locatorType) {
 		action.moveToElement(getElement(driver, locatorType)).perform();
 	}
 
-	//
+	public void pressKeyToElement(WebDriver driver, String locatorType, Keys key) {
+		Actions action = new Actions(driver);
+		action.sendKeys(getElement(driver, locatorType), key).perform();
+	}
+	
+	public void pressKeyToElement(WebDriver driver, String locatorType, Keys key, String... dynamicValues) {
+		Actions action = new Actions(driver);
+		action.sendKeys(getElement(driver, getDynamicLocator(locatorType, dynamicValues)), key).perform();
+	}
 
 	public void scrollToBottomPage(WebDriver driver) {
 		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
