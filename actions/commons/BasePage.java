@@ -25,6 +25,7 @@ import pageObjects.nopCommerce.user.UserHomePageObject;
 import pageObjects.nopCommerce.user.UserOdersPageObject;
 import pageObjects.nopCommerce.user.UserRewardpointsPage;
 import pageUIs.nopcommerce.User.UserBasePageUIs;
+import pageUIs.jQuery.uploadFile.HomePageUI;
 import pageUIs.nopcommerce.Admin.AdminBasePageUI;
 import pageUIs.nopcommerce.User.LoginPageUI;
 import org.openqa.selenium.Keys;
@@ -451,13 +452,17 @@ public boolean isElementUnDisplayed(WebDriver driver, String locatorType) {
 	public boolean isImageLoaded(WebDriver driver, String locatorType) {
 		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
 		boolean status = (boolean) jsExecutor.executeScript("return arguments[0].complete && typeof arguments[0].naturalWidth != \"undefined\" && arguments[0].naturalWidth > 0", getElement(driver, locatorType));
-		if (status) {
-			return true;
-		} else {
-			return false;
-		}
+		return status;
+
 	}
 
+	public boolean isImageLoaded(WebDriver driver, String locatorType, String... dynamicValues) {
+		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+		boolean status = (boolean) jsExecutor.executeScript("return arguments[0].complete && typeof arguments[0].naturalWidth != \"undefined\" && arguments[0].naturalWidth > 0", getElement(driver, getDynamicLocator(locatorType, dynamicValues)));
+		return status;
+
+	}
+	
 	public void waitForElementClickable(WebDriver driver, String locatorType) {
 		WebDriverWait explicitWait = new WebDriverWait(driver, longtimeout);
 		explicitWait.until(ExpectedConditions.elementToBeClickable(getByLocator(locatorType)));
@@ -571,6 +576,20 @@ public boolean isElementUnDisplayed(WebDriver driver, String locatorType) {
 		}
 		fullFileName = fullFileName.trim();
 		getElement(driver, AdminBasePageUI.UPLOAD_FILE_BY_CARD_NAME, cardName).sendKeys(fullFileName);
+		
+		
+	}
+	
+	public void uploadMultipleFiles(WebDriver driver, String... fileNames) {
+		//đưỡng dẫn của thư mục upload file(win, mac, linux)
+		String filePath2 = GlobalConstants.UPLOAD_FOLDER_PATH;
+		String fullName2 ="";
+		for (String file : fileNames) {
+			fullName2 = fullName2 + filePath2 + file + "\n";
+					
+		}
+		fullName2 = fullName2.trim();
+		getElement(driver, HomePageUI.UPLOAD_FILE).sendKeys(fullName2);
 		
 		
 	}

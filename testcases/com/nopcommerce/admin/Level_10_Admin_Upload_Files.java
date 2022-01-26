@@ -57,7 +57,7 @@ public class Level_10_Admin_Upload_Files extends BaseTest {
 
 	}
 
-	@Test
+	//@Test
 	public void Admin_01_Login() {
 		loginPage = PageGeneratorManagernopcommerce.getAdminLoginPageObject(driver);
 
@@ -76,7 +76,7 @@ public class Level_10_Admin_Upload_Files extends BaseTest {
 		productDetailsPage = productSearchPage.clickToEditButtonByProductName(productName);
 	}
 
-	@Test
+	//@Test
 	public void Admin_02_Upload_Files() {
 
 		productDetailsPage.clickToExpanPanelByName("Pictures");
@@ -113,6 +113,8 @@ public class Level_10_Admin_Upload_Files extends BaseTest {
 
 	}
 
+	
+		
 	@AfterClass
 	public void afterClass() {
 		driver.quit();

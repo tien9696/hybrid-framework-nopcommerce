@@ -12,5 +12,5 @@ public class GlobalConstants {
 	public static final String POTAL_PAGE_URL = "https://demo.nopcommerce.com/login?ReturnUrl=%2Fadmin%2F";
 	public static final String ADMIN_PAGE_URL = "https://admin-demo.nopcommerce.com/login?ReturnUrl=%2Fadmin%2F";
 	public static final String REGISTER_FACEBOOK = "https://www.facebook.com/reg/";
-
+public static final String UPLOAD_FILE = "https://blueimp.github.io/jQuery-File-Upload/";
 }
