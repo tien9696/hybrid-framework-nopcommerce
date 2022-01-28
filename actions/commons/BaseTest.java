@@ -44,7 +44,7 @@ public class BaseTest {
 		}
 		driverBaseTest.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
-		driverBaseTest.get(GlobalConstants.UPLOAD_FILE);
+		driverBaseTest.get(GlobalConstants.POTAL_PAGE_URL);
 
 		return driverBaseTest;
 	}

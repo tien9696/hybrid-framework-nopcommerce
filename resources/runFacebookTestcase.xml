@@ -3,6 +3,8 @@
 <suite name="Facebook"> 
 
 <listeners>
+            <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
           
           <listener class-name="commons.MethodListener"/>
 </listeners>
@@ -11,7 +13,7 @@
 	<test name="Run On Chrome">
 		<parameter name="browser" value="chrome" />
 		<classes>
-			<class name="com.facebook.register.Level_12_Register_Login_Assert_Verify" />
+			<class name="com.nopcommerce.user.Level_13_Register_Login_Log_Report" />
 		</classes>
 	</test>
 
