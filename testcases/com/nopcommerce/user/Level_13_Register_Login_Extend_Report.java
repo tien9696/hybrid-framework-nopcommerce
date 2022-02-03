@@ -28,7 +28,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 
-public class Level_13_Register_Login_Log_Report extends BaseTest {
+public class Level_13_Register_Login_Extend_Report extends BaseTest {
 	private String projectPath = System.getProperty("user.dir");
 
 	@Parameters("browser")
@@ -48,7 +48,6 @@ public class Level_13_Register_Login_Log_Report extends BaseTest {
 
 		emailAdmin = "admin@yourstore.com";
 		passwordAdmin = "admin";
-		Assert.assertTrue(false);
 	}
 
 	@Test
@@ -101,12 +100,10 @@ public class Level_13_Register_Login_Log_Report extends BaseTest {
 	}
 	
 
-	@Parameters({"browser"})
-	@AfterClass(alwaysRun = true)
+	@AfterClass
 	public void afterClass() {
 		log.info("post-conditon : close browser");
 		driver.quit();
-		closeBrowserAndDriver();
 	}
 
 	private UserMyAccountPageObject myAccountPage;

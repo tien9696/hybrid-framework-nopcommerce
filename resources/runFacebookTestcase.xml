@@ -5,8 +5,10 @@
 <listeners>
             <listener class-name="org.uncommons.reportng.HTMLReporter"/>
         <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+                     <listener class-name="commons.MethodListener"/>
+                       <listener class-name="reportConfig.ReportNGListener"/>
+                     
           
-          <listener class-name="commons.MethodListener"/>
 </listeners>
 
 

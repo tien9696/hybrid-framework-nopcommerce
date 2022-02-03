@@ -12,7 +12,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="libraries/selenium-server-standalone-3.141.59.jar" sourcepath="libraries/client-combined-3.141.59-sources (1).jar"/>
-	<classpathentry kind="lib" path="libraries/testng-6.14.3.jar"/>
+	<classpathentry kind="lib" path="libraries/testng-6.14.3.jar" sourcepath="libraries/testng-6.14.3.jar"/>
 	<classpathentry kind="lib" path="libWebDriverManager5/bcpkix-jdk15on-1.64.jar"/>
 	<classpathentry kind="lib" path="libWebDriverManager5/bcprov-jdk15on-1.64.jar"/>
 	<classpathentry kind="lib" path="libWebDriverManager5/checker-qual-3.8.0.jar"/>
@@ -52,5 +52,13 @@
 	<classpathentry kind="lib" path="reportTestNG/guice-3.0.jar"/>
 	<classpathentry kind="lib" path="reportTestNG/reportng-1.1.4.jar"/>
 	<classpathentry kind="lib" path="reportTestNG/velocity-1.4.jar"/>
+	<classpathentry kind="lib" path="libExtendV3/bsh-2.0b4.jar"/>
+	<classpathentry kind="lib" path="libExtendV3/bson-3.3.0.jar"/>
+	<classpathentry kind="lib" path="libExtendV3/extentreports-3.1.2-javadoc.jar"/>
+	<classpathentry kind="lib" path="libExtendV3/freemarker-2.3.23.jar"/>
+	<classpathentry kind="lib" path="libExtendV3/httpmime-4.5.2.jar"/>
+	<classpathentry kind="lib" path="libExtendV3/jcommander-1.48.jar"/>
+	<classpathentry kind="lib" path="libExtendV3/mongodb-driver-3.3.0.jar"/>
+	<classpathentry kind="lib" path="libExtendV3/mongodb-driver-core-3.3.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

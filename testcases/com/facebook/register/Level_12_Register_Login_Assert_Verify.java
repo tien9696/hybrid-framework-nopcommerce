@@ -20,6 +20,7 @@ import pageObjects.nopCommerce.user.UserRegisterPageObject;
 import pageObjects.nopCommerce.user.UserRewardpointsPage;
 
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 
 import java.util.Random;
@@ -31,6 +32,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 
+@Listeners(commons.MethodListener.class)
 public class Level_12_Register_Login_Assert_Verify extends BaseTest {
 
 	private WebDriver driver;
