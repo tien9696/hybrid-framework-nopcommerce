@@ -44,7 +44,7 @@ public class Close_Browser extends BaseTest {
   @AfterClass(alwaysRun = true)
   public void afterClass() {
 	  driver.quit();
-	  closeBrowserAndDriver();
+	  cleanDriverInstance();
   }
 
 }

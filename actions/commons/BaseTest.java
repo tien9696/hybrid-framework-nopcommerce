@@ -138,7 +138,7 @@ public class BaseTest {
 
 	}
 	
-	protected void closeBrowserAndDriver() {
+	protected void cleanDriverInstance() {
 		String cmd = "";
 		try {
 			String osName = System.getProperty("os.name").toLowerCase();
@@ -199,10 +199,5 @@ public class BaseTest {
 		}
 	}
 	
-	@AfterSuite(alwaysRun = true)
-	protected void cleanExecutableDriver() {
-		System.out.println("Run After Suite");
-	}
-	
-	
+
 }

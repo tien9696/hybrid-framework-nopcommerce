@@ -7,6 +7,7 @@ public class LoginPageUI {
 	public static final String EMAIL_ERROR_MESSAGE = "xpath=//span[@id='Email-error']";
 	public static final String UNSUCCESSFULL_ERROR_MESSAGE = "xpath=//div[contains(@class,'validation-summary-errors')]";
 
+	public static final String HOMEPAGE = "xpath=//img[@alt='nopCommerce demo store']";
 
 	
 }

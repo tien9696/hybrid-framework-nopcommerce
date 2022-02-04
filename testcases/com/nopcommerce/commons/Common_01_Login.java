@@ -1,4 +1,4 @@
-package com.nopcommerce.user;
+package com.nopcommerce.commons;
 
 import org.testng.annotations.Test;
 
@@ -17,23 +17,28 @@ import pageObjects.nopCommerce.user.UserRegisterPageObject;
 import pageObjects.nopCommerce.user.UserRewardpointsPage;
 
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
 import java.util.Random;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 
-public class Level_13_Register_Login_Log_Report extends BaseTest {
+public class Common_01_Login extends BaseTest {
+	public static Set<Cookie> loginPageCookie;
 	private String projectPath = System.getProperty("user.dir");
 
 	@Parameters("browser")
-	@BeforeClass
-	public void beforeClass(String browserName) {
+	@BeforeTest //ko dùng được với Parameter
+	public void beforeTest(String browserName) {
 		
 		log.info("pre-condition - Step 01: open browser  " + browserName  );
 		driver = getBrowserDriver(browserName);
@@ -49,57 +54,52 @@ public class Level_13_Register_Login_Log_Report extends BaseTest {
 		emailAdmin = "admin@yourstore.com";
 		passwordAdmin = "admin";
 		//Assert.assertTrue(false);
-	}
-
-	@Test
-	public void User_01_Register() {
-
-		log.info("User_01_Register - Step 03: click to Register link " );
+	
+		
+		log.info("Common_01 - Step 03: click to Register link " );
         userRegisterPage = userHomePage.clickToRegisterLink();
         
-		log.info("User_01_Register - Step 04: enter to firstName texbox  "+ firstName  );
+		log.info("Common_01 - Step 04: enter to firstName texbox  "+ firstName  );
         userRegisterPage.inputToFirstnameTextbox(firstName);
 		
-        log.info("User_01_Register - Step 05: enter to LastName texbox  "+ lastName  );
+        log.info("Common_01 - Step 05: enter to LastName texbox  "+ lastName  );
         userRegisterPage.inputToLasttnameTextbox(lastName);
 		
-        log.info("User_01_Register - Step 06: enter to email texbox  "+ existingEmail  );
+        log.info("Common_01 - Step 06: enter to email texbox  "+ existingEmail  );
         userRegisterPage.inputToEmailTextbox(existingEmail);
 	
-         log.info("User_01_Register - Step 07: enter to password texbox  "+ validPassword  );
+         log.info("Common_01 - Step 07: enter to password texbox  "+ validPassword  );
          userRegisterPage.inputToPasswordTextbox(validPassword);	
 		
-         log.info("User_01_Register - Step 08: enter to confirm password texbox  "+ validPassword  );
+         log.info("Common_01 - Step 08: enter to confirm password texbox  "+ validPassword  );
          userRegisterPage.inputToConfirmPasswordTextbox(validPassword);
 		
-		log.info("User_01_Register - Step 09: click to Register button " );
+		log.info("Common_01 - Step 09: click to Register button " );
         userRegisterPage.clickToRegisterButton();
 
-		log.info("User_01_Register - Step 10: Verify Success Message " );
+		log.info("Common_01 - Step 10: Verify Success Message " );
         verifyEquals(userRegisterPage.getRegisterSuccessMessage(), "Your registration completed");
 
-		log.info("User_01_Register - Step 11: click to Logout Link " );
+		log.info("Common_01 - Step 11: click to Logout Link " );
         userHomePage = userRegisterPage.clickToLogoutLink();
 
-	}
-
-	@Test
-	public void User_02_Login_User() {
-		log.info("User_02_Login_User - Step 12: click to Login link " );
+		log.info("Common_01_User - Step 12: click to Login link " );
         userLoginPage = userHomePage.clickToLoginLink();
 
 		// login as user role
-		log.info("User_02_Login_User - Step 13: Verify Login page is displayed " + existingEmail +validPassword );
+		log.info("Common_01_User - Step 13: Verify Login page is displayed " + existingEmail +validPassword );
        userHomePage = userLoginPage.LoginAsUser(existingEmail, validPassword);
        
-		log.info("User_02_Login_User - Step 14: Verify My account link is displayed " );
+		log.info("Common_01_User - Step 14: Verify My account link is displayed " );
         verifyTrue(userHomePage.isMyAccountLinkDisplayed());
         
-		log.info("User_02_Login_User - Step 15: click to Logout at userpage " );
-       userHomePage = userHomePage.clickToLogoutLinkAtUserPage(driver);
-		
+		log.info("Common_01_User - Step 15: Get all login Page Cookie " );
+		loginPageCookie = userHomePage.getAllCookies(driver);
+		System.out.println(loginPageCookie);
+
+        
+        	
 	}
-	
 
 	@Parameters({"browser"})
 	@AfterClass(alwaysRun = true)

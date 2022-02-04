@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.NoSuchSessionException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -39,16 +40,21 @@ public class ReportNGListener implements ITestListener{
 	}
 
 	@Override
-	public void onTestFailure(ITestResult result) {System.out.println("---------- " + result.getName() + " FAILED test ----------");
-	System.setProperty("org.uncommons.reportng.escape-output", "false");
+	public void onTestFailure(ITestResult result) {try {
+		System.out.println("---------- " + result.getName() + " FAILED test ----------");
+		System.setProperty("org.uncommons.reportng.escape-output", "false");
 
-	Object testClass = result.getInstance();
-	WebDriver driver = ((BaseTest) testClass).getWebDriver();
+		Object testClass = result.getInstance();
+		WebDriver driver = ((BaseTest) testClass).getWebDriver();
 
-	String screenshotPath = captureScreenshot(driver, result.getName());
-	Reporter.getCurrentTestResult();
-	Reporter.log("<br><a target=\"_blank\" href=\"file:///" + screenshotPath + "\">" + "<img src=\"file:///" + screenshotPath + "\" " + "height='100' width='150'/> " + "</a></br>");
-	Reporter.setCurrentTestResult(null);
+		String screenshotPath = captureScreenshot(driver, result.getName());
+		Reporter.getCurrentTestResult();
+		Reporter.log("<br><a target=\"_blank\" href=\"file:///" + screenshotPath + "\">" + "<img src=\"file:///" + screenshotPath + "\" " + "height='100' width='150'/> " + "</a></br>");
+		Reporter.setCurrentTestResult(null);
+	} catch (NoSuchSessionException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
 }
 		
 		
