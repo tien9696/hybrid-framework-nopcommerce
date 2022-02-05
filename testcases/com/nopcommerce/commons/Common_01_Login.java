@@ -101,13 +101,6 @@ public class Common_01_Login extends BaseTest {
         	
 	}
 
-	@Parameters({"browser"})
-	@AfterClass(alwaysRun = true)
-	public void afterClass() {
-		log.info("post-conditon : close browser");
-		driver.quit();
-		cleanDriverInstance();
-	}
 
 	private UserMyAccountPageObject myAccountPage;
 	private WebDriver driver;

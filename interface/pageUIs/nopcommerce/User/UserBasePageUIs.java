@@ -9,5 +9,14 @@ public class UserBasePageUIs {
 
 	
 	public static final String DYNAMIC_PAGE_AT_MY_ACCOUNT_AREA  = "xpath=//div[@class='listbox']//a[text()='%s']";
+	public static final String DYNAMIC_TEXTBOX_BY_ID = "xpath=//input[@id='%s']";
+	public static final String DYNAMIC_PAGE_HEADER = "xpath=//div[@class='header']//a[text()='%s']";
+	//div[@id='gender']//span//input[@id='gender-female']
+	
+	public static final String RADIO_BUTTON = "xpath=//div[@id='gender']//span//input[@id='%s']";
+	public static final String DYNAMIC_DROPDOWN_BY_NAME = "xpath=//select[@name='%s']";
+		public static final String DYNAMIC_BUTTON_BY_TEXT = "xpath=//button[text()='%s']";
 
+	
+	
 }
