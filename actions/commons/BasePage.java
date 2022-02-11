@@ -19,12 +19,16 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import pageObject.hrm.LoginPageObject;
+import pageObject.hrm.PageGenerator;
 import pageObject.nopCommerce.admin.AdminLoginPageObject;
 import pageObject.nopCommerce.admin.AdminProductSearchPageObject;
 import pageObjects.nopCommerce.user.UserAddressPageObject;
 import pageObjects.nopCommerce.user.UserHomePageObject;
 import pageObjects.nopCommerce.user.UserOdersPageObject;
 import pageObjects.nopCommerce.user.UserRewardpointsPage;
+import pageUI.hrm.BasePageUI;
+import pageUI.hrm.DashBoardPageUI;
 import pageUIs.nopcommerce.User.UserBasePageUIs;
 import pageUIs.jQuery.uploadFile.HomePageUI;
 import pageUIs.nopcommerce.Admin.AdminBasePageUI;
@@ -200,11 +204,11 @@ public class BasePage {
 	}
 
 	public String getElementText(WebDriver driver, String locatorType) {
-		return getElement(driver, locatorType).getText();
+		return getElement(driver, locatorType).getText().trim();
 	}
 
 	public String getElementText(WebDriver driver, String locatorType, String... dynamicValues) {
-		return getElement(driver, getDynamicLocator(locatorType, dynamicValues)).getText();
+		return getElement(driver, getDynamicLocator(locatorType, dynamicValues)).getText().trim();
 	}
 
 	public void selectItemInDefaultDropdown(WebDriver driver, String locatorType, String textItem) {
@@ -382,10 +386,15 @@ public class BasePage {
 		return getElement(driver, locatorType).isEnabled();
 	}
 
+	public boolean isElementEnabled(WebDriver driver, String locatorType, String... dynamicValues) {
+		return getElement(driver, getDynamicLocator(locatorType, dynamicValues)).isEnabled();
+	}
 	public boolean isElementSelected(WebDriver driver, String locatorType) {
 		return getElement(driver, locatorType).isSelected();
 	}
-
+	public boolean isElementSelected(WebDriver driver, String locatorType, String... dynamicValues) {
+		return getElement(driver, getDynamicLocator(locatorType, dynamicValues)).isSelected();
+	}
 	public void switchToFrameIframe(WebDriver driver, String locatorType) {
 		driver.switchTo().frame(getElement(driver, locatorType));
 	}
@@ -397,6 +406,11 @@ public class BasePage {
 	public void hoverMouseToElement(WebDriver driver, String locatorType) {
 		Actions action = new Actions(driver);
 		action.moveToElement(getElement(driver, locatorType)).perform();
+	}
+
+	public void hoverMouseToElement(WebDriver driver, String locatorType, String... dynamicValues) {
+		Actions action = new Actions(driver);
+		action.moveToElement(getElement(driver, getDynamicLocator(locatorType, dynamicValues))).perform();
 	}
 
 	public void pressKeyToElement(WebDriver driver, String locatorType, Keys key) {
@@ -439,6 +453,21 @@ public class BasePage {
 		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
 		jsExecutor.executeScript("arguments[0].removeAttribute('" + attributeRemove + "');",
 				getElement(driver, locatorType));
+	}
+
+	public boolean isJQueryAjaxLoadedSuccess(WebDriver driver) {
+		WebDriverWait explicitWait = new WebDriverWait(driver, longtimeout);
+
+		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+		ExpectedCondition<Boolean> jQueryLoad = new ExpectedCondition<Boolean>() {
+
+			@Override
+			public Boolean apply(WebDriver driver) {
+				return (Boolean) ((JavascriptExecutor) driver)
+						.executeScript("return (window.jQuery != null) && (jQuery.active === 0);");
+			}
+		};
+		return explicitWait.until(jQueryLoad);
 	}
 
 	public boolean areJQueryAndJSLoadedSuccess(WebDriver driver) {
@@ -636,17 +665,155 @@ public class BasePage {
 		waitForElementClickable(driver, UserBasePageUIs.RADIO_BUTTON, radioButtonID);
 		clickToElement(driver, UserBasePageUIs.RADIO_BUTTON, radioButtonID);
 	}
-	
+
 	public void selectDropdownByName(WebDriver driver, String dropDownname, String textItem) {
 		selectItemInDefaultDropdown(driver, UserBasePageUIs.DYNAMIC_DROPDOWN_BY_NAME, textItem, dropDownname);
 	}
-	
+
 	public void clickToButtonByText(WebDriver driver, String buttonText) {
 		waitForElementClickable(driver, UserBasePageUIs.DYNAMIC_BUTTON_BY_TEXT, buttonText);
 		clickToElement(driver, UserBasePageUIs.DYNAMIC_BUTTON_BY_TEXT, buttonText);
 	}
-	
 
+	// HRM - Menu/ SubMenu/ ChildSubMenu
+	public void openMenuPage(WebDriver driver, String menuPageName) {
+
+		waitForElementVisible(driver, BasePageUI.DYNAMIC_MENU_PAGE_BY_NAME, menuPageName);
+		clickToElement(driver, BasePageUI.DYNAMIC_MENU_PAGE_BY_NAME, menuPageName);
+		isJQueryAjaxLoadedSuccess(driver);
+	}
+
+	public void openSubMenuPage(WebDriver driver, String menuPageName, String subMenuPageName) {
+
+		waitForElementVisible(driver, BasePageUI.DYNAMIC_MENU_PAGE_BY_NAME, menuPageName);
+		clickToElement(driver, BasePageUI.DYNAMIC_MENU_PAGE_BY_NAME, menuPageName);
+		waitForElementVisible(driver, BasePageUI.DYNAMIC_MENU_PAGE_BY_NAME, subMenuPageName);
+		clickToElement(driver, BasePageUI.DYNAMIC_MENU_PAGE_BY_NAME, subMenuPageName);
+
+		isJQueryAjaxLoadedSuccess(driver);
+	}
+
+	public void openChildSubMenuPage(WebDriver driver, String menuPageName, String subMenuPageName,
+			String childSubMenuPageName) {
+
+		waitForElementVisible(driver, BasePageUI.DYNAMIC_MENU_PAGE_BY_NAME, menuPageName);
+		clickToElement(driver, BasePageUI.DYNAMIC_MENU_PAGE_BY_NAME, menuPageName);
+
+		waitForElementVisible(driver, BasePageUI.DYNAMIC_MENU_PAGE_BY_NAME, subMenuPageName);
+		hoverMouseToElement(driver, BasePageUI.DYNAMIC_MENU_PAGE_BY_NAME, subMenuPageName);
+
+		waitForElementVisible(driver, BasePageUI.DYNAMIC_MENU_PAGE_BY_NAME, childSubMenuPageName);
+		clickToElement(driver, BasePageUI.DYNAMIC_MENU_PAGE_BY_NAME, childSubMenuPageName);
+		isJQueryAjaxLoadedSuccess(driver);
+	}
+
+	public void clickToButtonByid(WebDriver driver, String buttonName) {
+		waitForElementVisible(driver, BasePageUI.BUTTON_BY_ID, buttonName);
+		clickToElement(driver, BasePageUI.BUTTON_BY_ID, buttonName);
+
+	}
+
+	public void enterToTextboxByIDHrm(WebDriver driver, String textboxIDName, String value) {
+		waitForElementVisible(driver, BasePageUI.TEXTBOX_BY_ID, textboxIDName);
+		sendToElement(driver, BasePageUI.TEXTBOX_BY_ID, value, textboxIDName);
+
+	}
+
+	/**
+	 * Get textbox value by textboxID
+	 * 
+	 * @author Administrator
+	 * @param driver
+	 * @param textboxIDName
+	 * @return attribute value
+	 */
+	public String getTextboxValueByID(WebDriver driver, String textboxIDName) {
+		waitForElementVisible(driver, BasePageUI.TEXTBOX_BY_ID, textboxIDName);
+		return getElementAttribute(driver, BasePageUI.TEXTBOX_BY_ID, "value", textboxIDName);
+
+	}
+
+	/**
+	 * Select item in dropdown by ID
+	 * 
+	 * @param driver
+	 * @param dropdownID
+	 * @param valueItem
+	 */
+	public void selectItemInDropdownByID(WebDriver driver, String dropdownID, String valueItem) {
+		waitForElementClickable(driver, BasePageUI.DROPDOWN_BY_ID, dropdownID);
+		selectItemInDefaultDropdown(driver, BasePageUI.DROPDOWN_BY_ID, valueItem, dropdownID);
+	}
+
+	// get dropdown value
+	/**
+	 * Get selected text item in dropdown
+	 * 
+	 * @param driver
+	 * @param dropdownID
+	 * @param valueItem
+	 * @return selected text in dropdown
+	 */
+	public String getSelectValueInDropdownByID(WebDriver driver, String dropdownID) {
+		waitForElementVisible(driver, BasePageUI.DROPDOWN_BY_ID, dropdownID);
+		return getSelectedItemDefaultDropdown(driver, BasePageUI.DROPDOWN_BY_ID, dropdownID);
+	}
+
+	public void clickToCheckboxByLabel(WebDriver driver, String checkboxByLabelName) {
+		waitForElementClickable(driver, BasePageUI.CHECK_BOX_BY_LABEL, checkboxByLabelName);
+		checkToDefaultCheckboxRadio(driver, BasePageUI.CHECK_BOX_BY_LABEL, checkboxByLabelName);
+
+	}
+
+	public void clickToRadioByLabel(WebDriver driver, String radioByLabelName) {
+		waitForElementClickable(driver, BasePageUI.RADIO_BY_LABEL, radioByLabelName);
+		checkToDefaultCheckboxRadio(driver, BasePageUI.RADIO_BY_LABEL, radioByLabelName);
+
+	}
+
+	public boolean isRadioSelected(WebDriver driver, String labelName) {
+		waitForElementVisible(driver, BasePageUI.RADIO_BY_LABEL, labelName);
+		
+		
+		return isElementSelected(driver, BasePageUI.RADIO_BY_LABEL, labelName);
+		
+	}
+	
+	public String getValueInTableIDAtColumnNameAndRowIndex(WebDriver driver, String tableID, String headerName,
+			String rowIndex) {
+		int columnIndex = getElementSize(driver, BasePageUI.TABLE_HEADER_BY_ID_AND_NAME, tableID, headerName) + 1;
+		waitForElementVisible(driver, BasePageUI.TABLE_ROW_BY_COLUMN_INDEX_AND_ROW_INDEX, tableID, rowIndex,
+				String.valueOf(columnIndex));
+		return getElementText(driver, BasePageUI.TABLE_ROW_BY_COLUMN_INDEX_AND_ROW_INDEX, tableID, rowIndex,
+				String.valueOf(columnIndex));
+	}
+
+	public LoginPageObject logoutToSystem(WebDriver driver) {
+		waitForElementClickable(driver, BasePageUI.WELCOM_USER_LINK);
+		clickToElement(driver, BasePageUI.WELCOM_USER_LINK);
+		
+		waitForElementClickable(driver, BasePageUI.LOGOUT_LINK);
+		clickToElement(driver, BasePageUI.LOGOUT_LINK);
+		return PageGenerator.getLoginPage(driver);
+
+	}
+	
+	//dung getgElement vì ko dung sendkey trực tiếp được
+	public void upLoadImage(WebDriver driver, String filePath) {
+		getElement(driver, BasePageUI.UPLOAD_FILE_IMG).sendKeys(filePath);
+
+	}
+	public boolean isSuccessMessageDisplayed (WebDriver driver, String messageValue ) {
+		waitForElementVisible(driver, BasePageUI.SUCCESS_MESSAGE, messageValue);
+		return isElementDisplayed(driver, BasePageUI.SUCCESS_MESSAGE, messageValue);
+	}
+	
+	public boolean isFieldEnableByName(WebDriver driver, String fieldID ) {
+		waitForElementVisible(driver, BasePageUI.ANY_FIELD_BY_ID, fieldID);
+		return isElementEnabled(driver, BasePageUI.ANY_FIELD_BY_ID, fieldID);
+
+	}
+	
 	private long longtimeout = 30;
 	private long shorttimeout = 7;
 
