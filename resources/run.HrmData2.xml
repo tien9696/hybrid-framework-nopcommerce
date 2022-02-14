@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="Hrm">
-	
+	<parameter name="adminusername" value="Admin" />
+	<parameter name="adminpassword" value="admin123" />
+
+	<parameter name="firstname" value="Han" />
+	<parameter name="lastname" value="Kim" />
+	<parameter name="username" value="hihihihi" />
+	<parameter name="Password" value="87654321" />
+	<parameter name="statusValue" value="Enable" />
+	<parameter name="fullname" value="Han Kim" />
+
+	<parameter name="editfirstname" value="lisa" />
+	<parameter name="editlastname" value="jenny" />
+	<parameter name="editgender" value="Male" />
+	<parameter name="editstatus" value="Single" />
+	<parameter name="editnational" value="Vietnamese" />
+
 	<listeners>
 		<listener class-name="org.uncommons.reportng.HTMLReporter" />
 		<listener
@@ -26,7 +41,7 @@
 		<parameter name="browser" value="firefox" />
 		<classes>
 
-			<class name="com.hrm.employee.Level_20_Data_Test_III_Out_Class" />
+			<class name="com.hrm.employee.Level_20_Data_Test_II_TestNG_XML" />
 		</classes>
 	</test>
 

@@ -1,0 +1,21 @@
+{
+"firstname":"lisa",
+"lastname":"lion",
+"username":"lyli",
+"password":"123456789",
+"fullname":"lisa lion",
+
+"editEmployeeFirstName":"Dieu",
+"editEmployeeLastName":"Nhi",
+"editEmployeeGender":"male",
+"editEmpMaritalStatus":"Single",
+"editNationality":"lisa lion",
+
+"adminUserName":"Admin",
+"adminPassword":"admin123",
+"ContactDetail":{
+    "editFirstName":"Chi",
+    "editLastName":"Pu"
+}
+
+}

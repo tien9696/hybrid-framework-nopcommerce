@@ -2,6 +2,8 @@ package com.hrm.employee;
 
 import org.testng.annotations.Test;
 
+import com.github.javafaker.Faker;
+
 import commons.BasePage;
 import commons.BaseTest;
 import commons.GlobalConstants;
@@ -21,6 +23,7 @@ import pageObjects.nopCommerce.user.UserMyAccountPageObject;
 import pageObjects.nopCommerce.user.UserOdersPageObject;
 import pageObjects.nopCommerce.user.UserRegisterPageObject;
 import pageObjects.nopCommerce.user.UserRewardpointsPage;
+import ubilities.DataUtil;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -34,7 +37,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 
-public class Level_16_Live_Coding extends BaseTest {
+public class Level_20_Data_Test_II_TestNG_XML extends BaseTest {
 
 	private WebDriver driver;
 	LoginPageObject loginPage;
@@ -42,41 +45,30 @@ public class Level_16_Live_Coding extends BaseTest {
 	AddEmployeePO addEmployeePage;
 	EmployeeListPO employeeListPage;
 	MyInfoPO myInfoPage;
-	String employeeID, statusValue, firstName, lastName, userName, Password, adminUserName, adminPassword, fullName;
-	String editEmployeeFirstName, editEmployeeLastName, editEmployeeGender, editEmpMaritalStatus, editNationality;
+	
+	String employeeID;
 	String avatarFilePath = GlobalConstants.UPLOAD_FOLDER_PATH + "2.png";
 
 	private String projectPath = System.getProperty("user.dir");
 
-	@Parameters("browser")
+	@Parameters({"browser", "adminusername", "adminpassword" })
 	@BeforeClass
-	public void beforeClass(String browserName) {
+	public void beforeClass(String browserName, String adminUserName, String adminPassword ) {
 
 		log.info("pre-condition - Step 01: open browser  " + browserName);
 		driver = getBrowserDriver(browserName);
 		loginPage = PageGenerator.getLoginPage(driver);
 
-		statusValue = "Enable";
-		firstName = "John";
-		lastName = "Haha";
-		userName = "Annahihi";
-		Password = "12345678";
-		adminUserName = "Admin";
-		adminPassword = "admin123";
-		fullName = firstName + " " + lastName;
-		editEmployeeFirstName = "Cam";
-		editEmployeeLastName = "Han";
-		editEmployeeGender = "Male";
-		editEmpMaritalStatus = "Single";
-		editNationality = "Vietnamese";
-
+	
 		log.info("Add_New_01 - step 02: Login With Admin role ");
 		dashBoardPage = loginPage.loginToSystem(adminUserName, adminPassword);
 
 	}
+	//chỉ dung trong 1 TC
+	@Parameters({"firstname", "lastname","username", "Password","statusValue"  ,"fullname" })
 
 	@Test
-	public void Employee_01_Add_New_Eployee() {
+	public void Employee_01_Add_New_Eployee(String firstName, String lastName, String userName, String Password, String statusValue, String fullName ) {
 
 		log.info("Add_New_01 - step 01: Open Employee list page ");
 		dashBoardPage.openSubMenuPage(driver, "PIM", "Employee List");
@@ -134,9 +126,10 @@ public class Level_16_Live_Coding extends BaseTest {
 				employeeID);
 
 	}
+	@Parameters({"username", "Password"})
 
 	@Test
-	public void Employee_02_Upload_Avatar() {
+	public void Employee_02_Upload_Avatar( String userName, String Password) {
 
 		loginPage = employeeListPage.logoutToSystem(driver);
 		log.info("Upload_Avatar_01 - step 01: Login  ");
@@ -162,9 +155,10 @@ public class Level_16_Live_Coding extends BaseTest {
 		verifyTrue(myInfoPage.isNewAvatarImageDisplayed());
 
 	}
+	@Parameters({ "editfirstname", "editlastname", "editgender", "editstatus", "editnational" })
 
 	@Test
-	public void Employee_03_Edit_Personal_Detail() {
+	public void Employee_03_Edit_Personal_Detail( String editEmployeeFirstName, String editEmployeeLastName, String editEmployeeGender, String editEmpMaritalStatus, String editNationality) {
 		log.info("Edit_Personal_Detail_03 - step 01: open personal details at sidebar");
 		myInfoPage.openTabAtSidebarByName("Personal Details");
 
@@ -240,7 +234,7 @@ public class Level_16_Live_Coding extends BaseTest {
 		verifyEquals(myInfoPage.getTextboxValueByID(driver, "personal_txtEmployeeId"), employeeID);
 
 	}
-	@Test
+	
 	public void Employee_04_Contact_Personal_Detail() {
 		log.info("Edit_Personal_Detail_03 - step 01: open personal details at sidebar");
 		myInfoPage.openTabAtSidebarByName("Contact Details");

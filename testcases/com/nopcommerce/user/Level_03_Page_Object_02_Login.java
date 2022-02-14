@@ -3,6 +3,7 @@ package com.nopcommerce.user;
 import org.testng.annotations.Test;
 
 import commons.BasePage;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import pageObjects.nopCommerce.user.UserHomePageObject;
 import pageObjects.nopCommerce.user.UserLoginPageObject;
 import pageObjects.nopCommerce.user.UserRegisterPageObject;
@@ -34,9 +35,9 @@ public class Level_03_Page_Object_02_Login {
 
 	@BeforeClass
 	public void beforeClass() {
-		System.setProperty("webdriver.gecko.driver", projectPath + "\\BrowserDriver\\geckodriver.exe");
+		WebDriverManager.firefoxdriver().setup();
 		driver = new FirefoxDriver();
-
+//	
 		// basePage = new BasePage();
 
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);

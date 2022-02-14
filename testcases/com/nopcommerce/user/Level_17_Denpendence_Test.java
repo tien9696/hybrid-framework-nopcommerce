@@ -8,6 +8,7 @@ import pageObjects.nopCommerce.user.UserHomePageObject;
 import pageObjects.nopCommerce.user.UserRegisterPageObject;
 
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
@@ -17,8 +18,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 
-public class Level_03_Page_Object_01_Register {
+public class Level_17_Denpendence_Test {
 	// BasePage: Class
 	// basePage: Object
 
@@ -30,13 +32,12 @@ public class Level_03_Page_Object_01_Register {
 	private UserRegisterPageObject registerPage;
 	private String projectPath = System.getProperty("user.dir");
 
-	@BeforeClass
-	public void beforeClass() {
+	
+
+	@BeforeMethod
+	public void beforeMethod() {
 		WebDriverManager.firefoxdriver().setup();
 		driver = new FirefoxDriver();
-//	
-//		System.setProperty("webdriver.gecko.driver", projectPath + "\\BrowserDriver\\geckodriver.exe");
-//		driver = new FirefoxDriver();
 
 		// basePage = new BasePage();
 
@@ -50,15 +51,17 @@ public class Level_03_Page_Object_01_Register {
 		lastName = "Fc";
 		password = "123456";
 		emailAddress = "afc" + generateFakeNumber() + "@gmail.com";
-	}
-
-	@Test
-	public void Register_01_Empty_Data() {
-		System.out.println("Register_01 - Steps: 01 click to register link");
+	
 		homePage.clickToRegisterLink();
 		// click register link > nhảy qua trang register
 		registerPage = new UserRegisterPageObject(driver);
 
+	}
+	
+	@Test
+	public void Register_01_Empty_Data() {
+		System.out.println("Register_01 - Steps: 01 click to register link");
+		
 		System.out.println("Register_01 - Steps: 02 click to register link");
 		registerPage.clickToRegisterButton();
 
@@ -184,8 +187,8 @@ public class Level_03_Page_Object_01_Register {
 
 	}
 
-	@AfterClass
-	public void afterClass() {
+	@AfterMethod
+	public void afterMethod() {
 		driver.quit();
 	}
 

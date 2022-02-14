@@ -2,6 +2,8 @@ package com.hrm.employee;
 
 import org.testng.annotations.Test;
 
+import com.github.javafaker.Faker;
+
 import commons.BasePage;
 import commons.BaseTest;
 import commons.GlobalConstants;
@@ -21,6 +23,7 @@ import pageObjects.nopCommerce.user.UserMyAccountPageObject;
 import pageObjects.nopCommerce.user.UserOdersPageObject;
 import pageObjects.nopCommerce.user.UserRegisterPageObject;
 import pageObjects.nopCommerce.user.UserRewardpointsPage;
+import ubilities.DataUtil;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -34,7 +37,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 
-public class Level_16_Live_Coding extends BaseTest {
+public class Level_19_Fake_Data extends BaseTest {
 
 	private WebDriver driver;
 	LoginPageObject loginPage;
@@ -42,6 +45,8 @@ public class Level_16_Live_Coding extends BaseTest {
 	AddEmployeePO addEmployeePage;
 	EmployeeListPO employeeListPage;
 	MyInfoPO myInfoPage;
+	
+	DataUtil fakeData;
 	String employeeID, statusValue, firstName, lastName, userName, Password, adminUserName, adminPassword, fullName;
 	String editEmployeeFirstName, editEmployeeLastName, editEmployeeGender, editEmpMaritalStatus, editNationality;
 	String avatarFilePath = GlobalConstants.UPLOAD_FOLDER_PATH + "2.png";
@@ -55,17 +60,21 @@ public class Level_16_Live_Coding extends BaseTest {
 		log.info("pre-condition - Step 01: open browser  " + browserName);
 		driver = getBrowserDriver(browserName);
 		loginPage = PageGenerator.getLoginPage(driver);
+		fakeData = DataUtil.getData();
 
 		statusValue = "Enable";
-		firstName = "John";
-		lastName = "Haha";
-		userName = "Annahihi";
-		Password = "12345678";
+		firstName = fakeData.getFirstName();
+		lastName = fakeData.getLastName();
+		userName = fakeData.getUserName();
+		Password = fakeData.getPassword();
+		
 		adminUserName = "Admin";
 		adminPassword = "admin123";
 		fullName = firstName + " " + lastName;
-		editEmployeeFirstName = "Cam";
-		editEmployeeLastName = "Han";
+		
+		
+		editEmployeeFirstName = fakeData.getFirstName();
+		editEmployeeLastName = fakeData.getLastName();
 		editEmployeeGender = "Male";
 		editEmpMaritalStatus = "Single";
 		editNationality = "Vietnamese";
@@ -74,9 +83,8 @@ public class Level_16_Live_Coding extends BaseTest {
 		dashBoardPage = loginPage.loginToSystem(adminUserName, adminPassword);
 
 	}
-
-	@Test
-	public void Employee_01_Add_New_Eployee() {
+     @Test
+	public void Employee_01_Add_New_Eployee( ) {
 
 		log.info("Add_New_01 - step 01: Open Employee list page ");
 		dashBoardPage.openSubMenuPage(driver, "PIM", "Employee List");
@@ -240,7 +248,7 @@ public class Level_16_Live_Coding extends BaseTest {
 		verifyEquals(myInfoPage.getTextboxValueByID(driver, "personal_txtEmployeeId"), employeeID);
 
 	}
-	@Test
+	
 	public void Employee_04_Contact_Personal_Detail() {
 		log.info("Edit_Personal_Detail_03 - step 01: open personal details at sidebar");
 		myInfoPage.openTabAtSidebarByName("Contact Details");

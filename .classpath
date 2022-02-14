@@ -60,5 +60,12 @@
 	<classpathentry kind="lib" path="libExtendV3/jcommander-1.48.jar"/>
 	<classpathentry kind="lib" path="libExtendV3/mongodb-driver-3.3.0.jar"/>
 	<classpathentry kind="lib" path="libExtendV3/mongodb-driver-core-3.3.0.jar"/>
+	<classpathentry kind="lib" path="libFaker/commons-lang3-3.5.jar"/>
+	<classpathentry kind="lib" path="libFaker/generex-1.0.2.jar"/>
+	<classpathentry kind="lib" path="libFaker/javafaker-1.0.1.jar"/>
+	<classpathentry kind="lib" path="libFaker/snakeyaml-1.23.jar"/>
+	<classpathentry kind="lib" path="libjackson/jackson-annotations-2.10.0.jar"/>
+	<classpathentry kind="lib" path="libjackson/jackson-core-2.10.0.jar"/>
+	<classpathentry kind="lib" path="libjackson/jackson-databind-2.10.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

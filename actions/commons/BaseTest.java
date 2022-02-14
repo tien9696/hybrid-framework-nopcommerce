@@ -47,6 +47,8 @@ public class BaseTest {
 		}
 		driverBaseTest.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
+		//driverBaseTest.get(appUrl);
+		//or
 		driverBaseTest.get(GlobalConstants.HRM);
 
 		return driverBaseTest;
