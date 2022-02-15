@@ -45,7 +45,7 @@
 
 	
 	<root>
-		<priority value="warn" />
+		<priority value="info" />
 	</root>
 
 </log4j:configuration>

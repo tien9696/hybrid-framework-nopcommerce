@@ -57,19 +57,19 @@ public class Level_13_Register_Login_Log_Report extends BaseTest {
 		log.info("User_01_Register - Step 03: click to Register link " );
         userRegisterPage = userHomePage.clickToRegisterLink();
         
-		log.info("User_01_Register - Step 04: enter to firstName texbox  "+ firstName  );
+		log.info("User_01_Register - Step 04: enter to firstName textbox  ' "+ firstName + "'" );
         userRegisterPage.inputToFirstnameTextbox(firstName);
 		
-        log.info("User_01_Register - Step 05: enter to LastName texbox  "+ lastName  );
+        log.info("User_01_Register - Step 05: enter to LastName texbox  ' "+ lastName + "'" );
         userRegisterPage.inputToLasttnameTextbox(lastName);
 		
-        log.info("User_01_Register - Step 06: enter to email texbox  "+ existingEmail  );
+        log.info("User_01_Register - Step 06: enter to email texbox ' "+ existingEmail +"'" );
         userRegisterPage.inputToEmailTextbox(existingEmail);
 	
-         log.info("User_01_Register - Step 07: enter to password texbox  "+ validPassword  );
+         log.info("User_01_Register - Step 07: enter to password texbox  '"+ validPassword +"'" );
          userRegisterPage.inputToPasswordTextbox(validPassword);	
 		
-         log.info("User_01_Register - Step 08: enter to confirm password texbox  "+ validPassword  );
+         log.info("User_01_Register - Step 08: enter to confirm password texbox ' "+ validPassword +"'" );
          userRegisterPage.inputToConfirmPasswordTextbox(validPassword);
 		
 		log.info("User_01_Register - Step 09: click to Register button " );
@@ -92,8 +92,9 @@ public class Level_13_Register_Login_Log_Report extends BaseTest {
 		log.info("User_02_Login_User - Step 13: Verify Login page is displayed " + existingEmail +validPassword );
        userHomePage = userLoginPage.LoginAsUser(existingEmail, validPassword);
        
+       //false
 		log.info("User_02_Login_User - Step 14: Verify My account link is displayed " );
-        verifyTrue(userHomePage.isMyAccountLinkDisplayed());
+        verifyFalse(userHomePage.isMyAccountLinkDisplayed());
         
 		log.info("User_02_Login_User - Step 15: click to Logout at userpage " );
        userHomePage = userHomePage.clickToLogoutLinkAtUserPage(driver);

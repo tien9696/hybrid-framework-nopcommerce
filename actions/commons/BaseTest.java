@@ -49,7 +49,7 @@ public class BaseTest {
 
 		//driverBaseTest.get(appUrl);
 		//or
-		driverBaseTest.get(GlobalConstants.HRM);
+		driverBaseTest.get(GlobalConstants.POTAL_PAGE_URL);
 
 		return driverBaseTest;
 	}
