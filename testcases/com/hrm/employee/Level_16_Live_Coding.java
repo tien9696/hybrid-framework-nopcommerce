@@ -72,7 +72,7 @@ public class Level_16_Live_Coding extends BaseTest {
 
 		log.info("Add_New_01 - step 02: Login With Admin role ");
 		dashBoardPage = loginPage.loginToSystem(adminUserName, adminPassword);
-
+		showBrowserConcoleLogs(driver);
 	}
 
 	@Test
@@ -81,10 +81,12 @@ public class Level_16_Live_Coding extends BaseTest {
 		log.info("Add_New_01 - step 01: Open Employee list page ");
 		dashBoardPage.openSubMenuPage(driver, "PIM", "Employee List");
 		employeeListPage = PageGenerator.getEmployeeListPage(driver);
+		showBrowserConcoleLogs(driver);
 
 		log.info("Add_New_01 - step 02: Click to 'Add' button ");
 		employeeListPage.clickToButtonByid(driver, "btnAdd");
 		addEmployeePage = PageGenerator.getAddEmployeePage(driver);
+		showBrowserConcoleLogs(driver);
 
 		log.info("Add_New_01 - step 03: Enter valid info to 'First Name' Textbox ");
 		addEmployeePage.enterToTextboxByIDHrm(driver, "firstName", firstName);
@@ -94,6 +96,7 @@ public class Level_16_Live_Coding extends BaseTest {
 
 		log.info("Add_New_01 - step 05: Get value of 'Employee ID'");
 		employeeID = addEmployeePage.getTextboxValueByID(driver, "employeeId");
+		showBrowserConcoleLogs(driver);
 
 		log.info("Add_New_01 - step 06: Click To 'Create Login Details' checkbox ");
 		addEmployeePage.clickToCheckboxByLabel(driver, "Create Login Details");
@@ -135,7 +138,6 @@ public class Level_16_Live_Coding extends BaseTest {
 
 	}
 
-	@Test
 	public void Employee_02_Upload_Avatar() {
 
 		loginPage = employeeListPage.logoutToSystem(driver);
@@ -163,7 +165,7 @@ public class Level_16_Live_Coding extends BaseTest {
 
 	}
 
-	@Test
+	
 	public void Employee_03_Edit_Personal_Detail() {
 		log.info("Edit_Personal_Detail_03 - step 01: open personal details at sidebar");
 		myInfoPage.openTabAtSidebarByName("Personal Details");
@@ -240,7 +242,7 @@ public class Level_16_Live_Coding extends BaseTest {
 		verifyEquals(myInfoPage.getTextboxValueByID(driver, "personal_txtEmployeeId"), employeeID);
 
 	}
-	@Test
+
 	public void Employee_04_Contact_Personal_Detail() {
 		log.info("Edit_Personal_Detail_03 - step 01: open personal details at sidebar");
 		myInfoPage.openTabAtSidebarByName("Contact Details");
@@ -302,37 +304,37 @@ public class Level_16_Live_Coding extends BaseTest {
 
 	}
 
-	@Test
+	
 	public void Employee_05_Emergency_Personal_Detail() {
 
 	}
 
-	@Test
+	
 	public void Employee_06_Assigned_Dependents() {
 
 	}
 
-	@Test
+	
 	public void Employee_07_Edit_View_Job() {
 
 	}
 
-	@Test
+	
 	public void Employee_08_Edit_View_Salary() {
 
 	}
 
-	@Test
+	
 	public void Employee_09_Edit_View_Tax() {
 
 	}
 
-	@Test
+	
 	public void Employee_10_Qualification() {
 
 	}
 
-	@Test
+	
 	public void Employee_11_Search_Employee() {
 
 	}

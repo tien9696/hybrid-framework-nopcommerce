@@ -2,14 +2,21 @@ package commons;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.logging.LogEntries;
+import org.openqa.selenium.logging.LogEntry;
+import org.openqa.selenium.safari.SafariDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.AfterSuite;
@@ -34,6 +41,43 @@ public class BaseTest {
 		BrowserList browserList = BrowserList.valueOf(browserName.toUpperCase());
 		if (browserList == BrowserList.FIREFOX) {
 			WebDriverManager.firefoxdriver().setup();
+			//browser tiếng viet
+			FirefoxOptions options= new FirefoxOptions();
+			options.addPreference("intl.accept_languages", "vi,en-us,en");
+			driverBaseTest = new FirefoxDriver(options);
+			//ko show warning
+//			System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE, "true");
+//			System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE,
+//					GlobalConstants.PROJECT_PATH + File.separator + "browserLogs" + File.separator + "Firefox.log" );
+//				driverBaseTest = new FirefoxDriver();
+			
+		} else if (browserList == BrowserList.CHROME) {
+			WebDriverManager.chromedriver().setup();
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--lang=vi");
+			driverBaseTest = new ChromeDriver(options);
+			
+		} else if (browserList == BrowserList.EDGE) {
+			WebDriverManager.edgedriver().setup();
+			driverBaseTest = new EdgeDriver();
+
+		}  else if (browserList == BrowserList.SAFARI) {
+		    driverBaseTest = new SafariDriver();
+
+		}else {
+			throw new RuntimeException("Browser name invalid");
+		}
+		driverBaseTest.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+
+		driverBaseTest.get(GlobalConstants.HRM);
+
+		return driverBaseTest;
+	}
+
+	public WebDriver getBrowserDriver(String browserName, String appUrl) {
+		BrowserList browserList = BrowserList.valueOf(browserName.toUpperCase());
+		if (browserList == BrowserList.FIREFOX) {
+			WebDriverManager.firefoxdriver().setup();
 			driverBaseTest = new FirefoxDriver();
 		} else if (browserList == BrowserList.CHROME) {
 			WebDriverManager.chromedriver().setup();
@@ -46,10 +90,7 @@ public class BaseTest {
 			throw new RuntimeException("Browser name invalid");
 		}
 		driverBaseTest.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-
-		//driverBaseTest.get(appUrl);
-		//or
-		driverBaseTest.get(GlobalConstants.POTAL_PAGE_URL);
+		driverBaseTest.get(appUrl);
 
 		return driverBaseTest;
 	}
@@ -139,7 +180,7 @@ public class BaseTest {
 		System.out.println("---------- END delete file in folder ----------");
 
 	}
-	
+
 	protected void cleanDriverInstance() {
 		String cmd = "";
 		try {
@@ -201,5 +242,17 @@ public class BaseTest {
 		}
 	}
 	
-
+protected void showBrowserConcoleLogs(WebDriver driver)	{
+	if (driverBaseTest.toString().contains("chrome")) {
+		LogEntries logs = driver.manage().logs().get("browser");
+		List<LogEntry> logList = logs.getAll();
+		for(LogEntry logging : logList) {
+			System.out.println("--------" + logging.getLevel().toString() + "------------\n" + logging.getMessage());
+		}
+	}
+	
+	
+	
+	
+}
 }
