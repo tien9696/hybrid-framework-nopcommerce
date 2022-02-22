@@ -14,6 +14,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.logging.LogEntries;
 import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.safari.SafariDriver;
@@ -26,7 +27,9 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import javaOOP.BrowserList;
 
 public class BaseTest {
-
+	public enum ENVIROMENT {
+		DEV, TEST, STATGING, PRODUCT
+	}
 	private WebDriver driverBaseTest;
 
 	protected final Log log;
@@ -41,35 +44,55 @@ public class BaseTest {
 		BrowserList browserList = BrowserList.valueOf(browserName.toUpperCase());
 		if (browserList == BrowserList.FIREFOX) {
 			WebDriverManager.firefoxdriver().setup();
-			//browser tiếng viet
-			FirefoxOptions options= new FirefoxOptions();
+			// browser tiếng viet
+			FirefoxOptions options = new FirefoxOptions();
 			options.addPreference("intl.accept_languages", "vi,en-us,en");
 			driverBaseTest = new FirefoxDriver(options);
-			//ko show warning
+			// ko show warning
 //			System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE, "true");
 //			System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE,
 //					GlobalConstants.PROJECT_PATH + File.separator + "browserLogs" + File.separator + "Firefox.log" );
 //				driverBaseTest = new FirefoxDriver();
-			
+
 		} else if (browserList == BrowserList.CHROME) {
+//			WebDriverManager.chromedriver().setup();
+//            ChromeOptions options = new ChromeOptions();
+//            options.addArguments("--lang=vi");
+//			driverBaseTest = new ChromeDriver(options);
+//		
+
 			WebDriverManager.chromedriver().setup();
-            ChromeOptions options = new ChromeOptions();
-            options.addArguments("--lang=vi");
+
+			ChromeOptions options = new ChromeOptions();
+			options.addExtensions(new File(projectPath + "\\browserExtensions\\Ultrasurf_1_6_6_0.crx"));
+
 			driverBaseTest = new ChromeDriver(options);
-			
+
+		} else if (browserList == BrowserList.IE) {
+			WebDriverManager.iedriver().arch32().setup();
+			driverBaseTest = new InternetExplorerDriver();
+
 		} else if (browserList == BrowserList.EDGE) {
 			WebDriverManager.edgedriver().setup();
 			driverBaseTest = new EdgeDriver();
 
-		}  else if (browserList == BrowserList.SAFARI) {
-		    driverBaseTest = new SafariDriver();
+		} else if (browserList == BrowserList.COCCOC) {
+			WebDriverManager.chromedriver().driverVersion("97.0.4692.71").setup();
+			ChromeOptions options = new ChromeOptions();
+			options.setBinary("C:\\Program Files\\CocCoc\\Browser\\Application\\browser.exe");
 
-		}else {
+			driverBaseTest = new ChromeDriver(options);
+
+		} else if (browserList == BrowserList.SAFARI) {
+			driverBaseTest = new SafariDriver();
+
+		} else {
 			throw new RuntimeException("Browser name invalid");
 		}
 		driverBaseTest.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		driverBaseTest.get("http://demo.guru99.com/v4/");
 
-		driverBaseTest.get(GlobalConstants.HRM);
+       //driverBaseTest.get(GlobalConstants.BANK_GURU);
 
 		return driverBaseTest;
 	}
@@ -81,7 +104,9 @@ public class BaseTest {
 			driverBaseTest = new FirefoxDriver();
 		} else if (browserList == BrowserList.CHROME) {
 			WebDriverManager.chromedriver().setup();
-			driverBaseTest = new ChromeDriver();
+			ChromeOptions options = new ChromeOptions();
+			//options.addExtensions(new File(projectPath + "\\browserExtensions\\Ultrasurf_1_6_6_0.crx"));
+			driverBaseTest = new ChromeDriver(options);
 		} else if (browserList == BrowserList.EDGE) {
 			WebDriverManager.edgedriver().setup();
 			driverBaseTest = new EdgeDriver();
@@ -90,11 +115,45 @@ public class BaseTest {
 			throw new RuntimeException("Browser name invalid");
 		}
 		driverBaseTest.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		//driverBaseTest.get(getEnviromentValuee(appUrl));
 		driverBaseTest.get(appUrl);
 
 		return driverBaseTest;
 	}
 
+	private String getEnviromentValue(String enviromentName) {
+		String envURL = null;
+		ENVIROMENT enviroment = ENVIROMENT.valueOf(enviromentName.toUpperCase());
+		if(enviroment== ENVIROMENT.DEV){
+			envURL = "http://demo.guru99.com/v1/";
+		}else if(enviroment== ENVIROMENT.TEST){
+			envURL = "http://demo.guru99.com/v2/";
+		}else if(enviromentName.equalsIgnoreCase("staging")){
+			envURL = "http://demo.guru99.com/v3/";
+		}else if(enviromentName.equalsIgnoreCase("production")){
+			envURL = "http://demo.guru99.com/v4/";
+		}
+		
+		return envURL;
+	}
+	
+	//c2
+	private String getEnviromentValuee(String enviromentName) {
+		String enrURL = null;
+		if(enviromentName.equalsIgnoreCase("dev")) {
+			enrURL = "http://demo.guru99.com/v1/";
+		}else if (enviromentName.equalsIgnoreCase("test")){
+			enrURL = "http://demo.guru99.com/v2/";
+
+		}else if (enviromentName.equalsIgnoreCase("staging")){
+			enrURL = "http://demo.guru99.com/v3/";
+
+		}
+		return enrURL;
+
+	}
+	
+	
 	public WebDriver getWebDriver() {
 		return this.driverBaseTest;
 	}
@@ -241,18 +300,16 @@ public class BaseTest {
 			}
 		}
 	}
-	
-protected void showBrowserConcoleLogs(WebDriver driver)	{
-	if (driverBaseTest.toString().contains("chrome")) {
-		LogEntries logs = driver.manage().logs().get("browser");
-		List<LogEntry> logList = logs.getAll();
-		for(LogEntry logging : logList) {
-			System.out.println("--------" + logging.getLevel().toString() + "------------\n" + logging.getMessage());
+
+	protected void showBrowserConcoleLogs(WebDriver driver) {
+		if (driverBaseTest.toString().contains("chrome")) {
+			LogEntries logs = driver.manage().logs().get("browser");
+			List<LogEntry> logList = logs.getAll();
+			for (LogEntry logging : logList) {
+				System.out
+						.println("--------" + logging.getLevel().toString() + "------------\n" + logging.getMessage());
+			}
 		}
+
 	}
-	
-	
-	
-	
-}
 }

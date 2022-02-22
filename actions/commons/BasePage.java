@@ -184,20 +184,34 @@ public class BasePage {
 	}
 
 	public void clickToElement(WebDriver driver, String locatorType) {
+		highlightElement(driver, locatorType);
+		if(driver.toString().contains("internet explorer")) {
+			clickToElementByJS(driver, locatorType);
+			sleepInsecond(3);
+		}else {
 		getElement(driver, locatorType).click();
+		}
 	}
 
 	public void clickToElement(WebDriver driver, String locatorType, String... dynamicValues) {
-		getElement(driver, getDynamicLocator(locatorType, dynamicValues)).click();
+		highlightElement(driver, locatorType, dynamicValues);
+		if(driver.toString().contains("internet explorer")) {
+			clickToElementByJS(driver, getDynamicLocator(locatorType, dynamicValues));
+			sleepInsecond(3);
+		}else {
+			getElement(driver, getDynamicLocator(locatorType, dynamicValues)).click();
+		}
 	}
 
 	public void sendToElement(WebDriver driver, String locatorType, String textValue) {
-		WebElement element = getElement(driver, locatorType);
+		WebElement element = getElement(driver, locatorType); 
+		highlightElement(driver, locatorType);
 		element.clear();
 		element.sendKeys(textValue);
 	}
 
 	public void sendToElement(WebDriver driver, String locatorType, String textValue, String... dynamicValues) {
+		highlightElement(driver, locatorType, dynamicValues);
 		WebElement element = getElement(driver, getDynamicLocator(locatorType, dynamicValues));
 		element.clear();
 		element.sendKeys(textValue);
@@ -309,6 +323,7 @@ public class BasePage {
 	}
 
 	public void checkToDefaultCheckboxRadio(WebDriver driver, String locatorType) {
+		highlightElement(driver, locatorType);
 		WebElement element = getElement(driver, locatorType);
 		if (!element.isSelected()) {
 			element.click();
@@ -316,6 +331,7 @@ public class BasePage {
 	}
 
 	public void checkToDefaultCheckboxRadio(WebDriver driver, String locatorType, String... dynamicValues) {
+		highlightElement(driver, locatorType, dynamicValues);
 		WebElement element = getElement(driver, getDynamicLocator(locatorType, dynamicValues));
 		if (!element.isSelected()) {
 			element.click();
@@ -323,6 +339,7 @@ public class BasePage {
 	}
 
 	public void uncheckToDefaultCheckbox(WebDriver driver, String locatorType) {
+		highlightElement(driver, locatorType);
 		WebElement element = getElement(driver, locatorType);
 		if (element.isSelected()) {
 			element.click();
@@ -330,6 +347,7 @@ public class BasePage {
 	}
 
 	public void uncheckToDefaultCheckbox(WebDriver driver, String locatorType, String... dynamicValues) {
+		highlightElement(driver, locatorType, dynamicValues);
 		WebElement element = getElement(driver, getDynamicLocator(locatorType, dynamicValues));
 		if (element.isSelected()) {
 			element.click();
@@ -438,8 +456,26 @@ public class BasePage {
 		jsExecutor.executeScript("arguments[0].setAttribute(arguments[1], arguments[2])", element, "style",
 				originalStyle);
 	}
+	
+	
+	public void highlightElement(WebDriver driver, String locatorType, String... dynamicValues) {
+		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+		WebElement element = getElement(driver, getDynamicLocator(locatorType, dynamicValues));
+		String originalStyle = element.getAttribute("style");
+		jsExecutor.executeScript("arguments[0].setAttribute(arguments[1], arguments[2])", element, "style",
+				"border: 2px solid red; border-style: dashed;");
+
+		jsExecutor.executeScript("arguments[0].setAttribute(arguments[1], arguments[2])", element, "style",
+				originalStyle);
+	}
+	
+	
+	
+	
+	
 
 	public void clickToElementByJS(WebDriver driver, String locatorType) {
+		highlightElement(driver, locatorType);
 		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
 		jsExecutor.executeScript("arguments[0].click();", getElement(driver, locatorType));
 	}

@@ -15,11 +15,15 @@ public class UserHomePageObject extends BasePage {
 		this.driver = driver;
 
 	}
-	
+	//	clickToElement(driver, HomePageUI.REGISTER_LINK);
 	
 	public UserRegisterPageObject clickToRegisterLink() {
 		waitForElementClickable(driver, HomePageUI.REGISTER_LINK);
-		clickToElement(driver, HomePageUI.REGISTER_LINK);
+		// nếu hàm click của JS ko work thi d có thể dùng hàm href
+		if(driver.toString().contains("internet explorer")) {
+			openPageUrl(driver, getElementAttribute(driver, HomePageUI.REGISTER_LINK, "href"));
+			sleepInsecond(3);
+		}
 		return PageGeneratorManagernopcommerce.getUserRegisterPage(driver);
 	}
 
@@ -27,6 +31,9 @@ public class UserHomePageObject extends BasePage {
 	public UserLoginPageObject clickToLoginLink() {
 		waitForElementClickable(driver, HomePageUI.LOGIN_LINK);
 		clickToElement(driver, HomePageUI.LOGIN_LINK);
+		if(driver.toString().contains("internet explorer")) {
+			sleepInsecond(3);
+		}
         return PageGeneratorManagernopcommerce.getUserLoginPage(driver);
 	}
 	
@@ -40,6 +47,9 @@ public class UserHomePageObject extends BasePage {
 	public UserMyAccountPageObject clickToMyAccountLink() {
 		waitForElementClickable(driver, HomePageUI.MY_ACCOUNT_LINK);
 		clickToElement(driver, HomePageUI.MY_ACCOUNT_LINK);
+		if(driver.toString().contains("internet explorer")) {
+			sleepInsecond(3);
+		}
         		return PageGeneratorManagernopcommerce.getUserMyAccountPage(driver);
 	}
 

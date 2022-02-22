@@ -92,9 +92,9 @@ public class Level_13_Register_Login_Log_Report extends BaseTest {
 		log.info("User_02_Login_User - Step 13: Verify Login page is displayed " + existingEmail +validPassword );
        userHomePage = userLoginPage.LoginAsUser(existingEmail, validPassword);
        
-       //false
+       
 		log.info("User_02_Login_User - Step 14: Verify My account link is displayed " );
-        verifyFalse(userHomePage.isMyAccountLinkDisplayed());
+        verifyTrue(userHomePage.isMyAccountLinkDisplayed());
         
 		log.info("User_02_Login_User - Step 15: click to Logout at userpage " );
        userHomePage = userHomePage.clickToLogoutLinkAtUserPage(driver);

@@ -24,8 +24,8 @@
 	
 
 
-	<test name="Run On firefox">  
-		<parameter name="browser" value="firefox" />
+	<test name="Run On chrome">  
+		<parameter name="browser" value="chrome" />
 		<classes>
 
 			<class name="com.hrm.employee.Level_16_Live_Coding" />

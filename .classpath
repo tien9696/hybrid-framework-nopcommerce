@@ -66,5 +66,10 @@
 	<classpathentry kind="lib" path="libLogging/commons-io-2.6.jar"/>
 	<classpathentry kind="lib" path="libLogging/commons-codec-1.11.jar"/>
 	<classpathentry kind="lib" path="libWebDriverManager5/commons-lang-2.6.jar"/>
+	<classpathentry kind="lib" path="libOwner/hamcrest-all-1.3.jar"/>
+	<classpathentry kind="lib" path="libOwner/hamcrest-core-1.3.jar"/>
+	<classpathentry kind="lib" path="libOwner/junit-4.12.jar"/>
+	<classpathentry kind="lib" path="libOwner/mockito-core-2.15.0.jar"/>
+	<classpathentry kind="lib" path="libOwner/owner-1.0.10.jar" sourcepath="C:/Users/ADMINI~1/AppData/Local/Temp/.org.sf.feeling.decompiler1645516341755/source/owner-1.0.10-sources.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

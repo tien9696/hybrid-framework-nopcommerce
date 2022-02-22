@@ -20,8 +20,8 @@
 <!-- 	</test> -->
 
 
-	<test name="Run On firefox">
-		<parameter name="browser" value="firefox" />
+	<test name="Run On IE">
+		<parameter name="browser" value="ie" />
 		<classes>
 <!-- 					<class name="com.nopcommerce.commons.Common_01_Login" /> -->
 		

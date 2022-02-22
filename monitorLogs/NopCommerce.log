@@ -71,3 +71,142 @@ Driver info: driver.version: RemoteWebDriver
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
 System info: host: 'ADMIN', ip: '192.168.1.6', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.8.0_211'
 Driver info: driver.version: RemoteWebDriver
+[INFO ] [2022-02-17 09:14:39,843] pre-condition - Step 01: open browser  ie
+[INFO ] [2022-02-17 09:15:28,422] pre-condition - Step 02: Verify Home page is displayed
+[INFO ] [2022-02-17 09:15:28,502] User_01_Register - Step 03: click to Register link 
+[INFO ] [2022-02-17 09:15:29,439] pre-condition - Step 01: open browser  ie
+[INFO ] [2022-02-17 09:15:34,936] pre-condition - Step 02: Verify Home page is displayed
+[INFO ] [2022-02-17 09:15:34,966] User_01_Register - Step 03: click to Register link 
+[INFO ] [2022-02-17 15:47:50,126] pre-condition - Step 01: open browser  ie
+[INFO ] [2022-02-17 15:47:54,310] post-conditon : close browser
+[INFO ] [2022-02-17 15:49:45,929] pre-condition - Step 01: open browser  ie
+[INFO ] [2022-02-17 15:49:51,266] post-conditon : close browser
+[INFO ] [2022-02-17 15:51:04,447] pre-condition - Step 01: open browser  chrome
+[INFO ] [2022-02-17 15:51:17,360] pre-condition - Step 02: Verify Home page is displayed
+[INFO ] [2022-02-17 15:51:17,503] User_01_Register - Step 03: click to Register link 
+[INFO ] [2022-02-17 15:51:18,993] User_01_Register - Step 04: enter to firstName textbox  ' Automation'
+[INFO ] [2022-02-17 15:51:19,459] User_01_Register - Step 05: enter to LastName texbox  ' Fc'
+[INFO ] [2022-02-17 15:52:15,402] pre-condition - Step 01: open browser  ie
+[INFO ] [2022-02-17 15:52:19,493] post-conditon : close browser
+[INFO ] [2022-02-17 16:03:43,021] pre-condition - Step 01: open browser  ie
+[INFO ] [2022-02-17 16:03:47,165] post-conditon : close browser
+[INFO ] [2022-02-17 16:04:57,648] pre-condition - Step 01: open browser  ie
+[INFO ] [2022-02-17 16:05:01,864] post-conditon : close browser
+[INFO ] [2022-02-17 16:16:36,170] pre-condition - Step 01: open browser  ie
+[INFO ] [2022-02-17 16:16:43,588] pre-condition - Step 02: Verify Home page is displayed
+[INFO ] [2022-02-17 16:16:43,619] User_01_Register - Step 03: click to Register link 
+[INFO ] [2022-02-17 16:20:59,629] User_01_Register - Step 04: enter to firstName textbox  ' Automation'
+[INFO ] [2022-02-17 16:23:53,984] pre-condition - Step 01: open browser  ie
+[INFO ] [2022-02-17 16:24:01,069] pre-condition - Step 02: Verify Home page is displayed
+[INFO ] [2022-02-17 16:24:01,098] User_01_Register - Step 03: click to Register link 
+[INFO ] [2022-02-17 16:24:01,608] User_01_Register - Step 04: enter to firstName textbox  ' Automation'
+[INFO ] [2022-02-17 16:24:04,096] User_01_Register - Step 05: enter to LastName texbox  ' Fc'
+[INFO ] [2022-02-17 16:24:04,941] User_01_Register - Step 06: enter to email texbox ' afc4070@gmail.com'
+[INFO ] [2022-02-17 16:24:05,905] User_01_Register - Step 07: enter to password texbox  '123456'
+[INFO ] [2022-02-17 16:24:06,809] User_01_Register - Step 08: enter to confirm password texbox ' 123456'
+[INFO ] [2022-02-17 16:24:07,682] User_01_Register - Step 09: click to Register button 
+[INFO ] [2022-02-17 16:24:08,169] User_01_Register - Step 10: Verify Success Message 
+[INFO ] [2022-02-17 16:24:09,878]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-17 16:24:09,878] User_01_Register - Step 11: click to Logout Link 
+[INFO ] [2022-02-17 16:24:10,275] User_02_Login_User - Step 12: click to Login link 
+[INFO ] [2022-02-17 16:24:12,002] User_02_Login_User - Step 13: Verify Login page is displayed afc4070@gmail.com123456
+[INFO ] [2022-02-17 16:24:16,002] User_02_Login_User - Step 14: Verify My account link is displayed 
+[INFO ] [2022-02-17 16:24:17,590] User_02_Login_User - Step 15: click to Logout at userpage 
+[INFO ] [2022-02-17 16:24:18,577] post-conditon : close browser
+[INFO ] [2022-02-17 16:24:19,279] OS name = windows 7
+[INFO ] [2022-02-17 16:24:19,279] Driver instance name = windows 7
+[INFO ] [2022-02-17 16:24:19,294] Session ID is null. Using WebDriver after calling quit()?
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
+System info: host: 'ADMIN', ip: '192.168.1.6', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.8.0_211'
+Driver info: driver.version: RemoteWebDriver
+[INFO ] [2022-02-17 21:20:48,222] pre-condition - Step 01: open browser  ie
+[INFO ] [2022-02-17 21:20:59,455] pre-condition - Step 02: Verify Home page is displayed
+[INFO ] [2022-02-17 21:20:59,490] User_01_Register - Step 03: click to Register link 
+[INFO ] [2022-02-17 21:21:03,068] User_01_Register - Step 04: enter to firstName textbox  ' Automation'
+[INFO ] [2022-02-17 21:21:04,039] User_01_Register - Step 05: enter to LastName texbox  ' Fc'
+[INFO ] [2022-02-17 21:21:04,857] User_01_Register - Step 06: enter to email texbox ' afc8396@gmail.com'
+[INFO ] [2022-02-17 21:21:05,912] User_01_Register - Step 07: enter to password texbox  '123456'
+[INFO ] [2022-02-17 21:21:06,898] User_01_Register - Step 08: enter to confirm password texbox ' 123456'
+[INFO ] [2022-02-17 21:21:08,012] User_01_Register - Step 09: click to Register button 
+[INFO ] [2022-02-17 21:21:11,463] User_01_Register - Step 10: Verify Success Message 
+[INFO ] [2022-02-17 21:21:11,847]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-17 21:21:11,847] User_01_Register - Step 11: click to Logout Link 
+[INFO ] [2022-02-17 21:21:15,252] User_02_Login_User - Step 12: click to Login link 
+[INFO ] [2022-02-17 21:21:18,716] User_02_Login_User - Step 13: Verify Login page is displayed afc8396@gmail.com123456
+[INFO ] [2022-02-17 21:21:23,921] User_02_Login_User - Step 14: Verify My account link is displayed 
+[INFO ] [2022-02-17 21:21:24,319] User_02_Login_User - Step 15: click to Logout at userpage 
+[INFO ] [2022-02-17 21:21:27,733] post-conditon : close browser
+[INFO ] [2022-02-17 21:21:28,404] OS name = windows 7
+[INFO ] [2022-02-17 21:21:28,404] Driver instance name = windows 7
+[INFO ] [2022-02-17 21:21:28,404] Session ID is null. Using WebDriver after calling quit()?
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
+System info: host: 'ADMIN', ip: '192.168.1.6', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.8.0_211'
+Driver info: driver.version: RemoteWebDriver
+[INFO ] [2022-02-17 21:28:00,036] pre-condition - Step 01: open browser  ie
+[INFO ] [2022-02-17 21:28:06,927] pre-condition - Step 02: Verify Home page is displayed
+[INFO ] [2022-02-17 21:28:06,943] User_01_Register - Step 03: click to Register link 
+[INFO ] [2022-02-17 21:28:21,682] User_01_Register - Step 09: click to Register button 
+[INFO ] [2022-02-17 21:28:25,251] User_01_Register - Step 10: Verify Success Message 
+[INFO ] [2022-02-17 21:28:25,673]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-17 21:28:25,673] User_01_Register - Step 11: click to Logout Link 
+[INFO ] [2022-02-17 21:28:29,125] User_02_Login_User - Step 12: click to Login link 
+[INFO ] [2022-02-17 21:28:42,039] post-conditon : close browser
+[INFO ] [2022-02-17 21:28:42,601] OS name = windows 7
+[INFO ] [2022-02-17 21:28:42,601] Driver instance name = windows 7
+[INFO ] [2022-02-17 21:28:42,601] Session ID is null. Using WebDriver after calling quit()?
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
+System info: host: 'ADMIN', ip: '192.168.1.6', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.8.0_211'
+Driver info: driver.version: RemoteWebDriver
+[INFO ] [2022-02-17 21:46:38,680] pre-condition - Step 01: open browser  ie
+[INFO ] [2022-02-17 21:46:45,735] pre-condition - Step 02: Verify Home page is displayed
+[INFO ] [2022-02-17 21:46:45,751] User_01_Register - Step 03: click to Register link 
+[INFO ] [2022-02-17 21:46:49,935] User_01_Register - Step 04: enter to firstName textbox  ' Automation'
+[INFO ] [2022-02-17 21:46:50,935] User_01_Register - Step 05: enter to LastName texbox  ' Fc'
+[INFO ] [2022-02-17 21:46:51,808] User_01_Register - Step 06: enter to email texbox ' afc4456@gmail.com'
+[INFO ] [2022-02-17 21:46:52,825] User_01_Register - Step 07: enter to password texbox  '123456'
+[INFO ] [2022-02-17 21:46:53,856] User_01_Register - Step 08: enter to confirm password texbox ' 123456'
+[INFO ] [2022-02-17 21:46:54,832] User_01_Register - Step 09: click to Register button 
+[INFO ] [2022-02-17 21:46:58,336] User_01_Register - Step 10: Verify Success Message 
+[INFO ] [2022-02-17 21:46:58,743]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-17 21:46:58,743] User_01_Register - Step 11: click to Logout Link 
+[INFO ] [2022-02-17 21:47:02,185] User_02_Login_User - Step 12: click to Login link 
+[INFO ] [2022-02-17 21:47:08,711] User_02_Login_User - Step 13: Verify Login page is displayed afc4456@gmail.com123456
+[INFO ] [2022-02-17 21:47:14,390] User_02_Login_User - Step 14: Verify My account link is displayed 
+[INFO ] [2022-02-17 21:47:14,859] User_02_Login_User - Step 15: click to Logout at userpage 
+[INFO ] [2022-02-17 21:47:18,369] post-conditon : close browser
+[INFO ] [2022-02-17 21:47:18,916] OS name = windows 7
+[INFO ] [2022-02-17 21:47:18,916] Driver instance name = windows 7
+[INFO ] [2022-02-17 21:47:18,916] Session ID is null. Using WebDriver after calling quit()?
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
+System info: host: 'ADMIN', ip: '192.168.1.6', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.8.0_211'
+Driver info: driver.version: RemoteWebDriver
+[INFO ] [2022-02-17 22:28:49,482] pre-condition - Step 01: open browser  ie
+[INFO ] [2022-02-17 22:28:49,637] post-conditon : close browser
+[INFO ] [2022-02-17 22:30:28,501] pre-condition - Step 01: open browser  COCCOC
+[INFO ] [2022-02-17 22:30:33,112] post-conditon : close browser
+[INFO ] [2022-02-17 22:34:22,905] pre-condition - Step 01: open browser  COCCOC
+[INFO ] [2022-02-17 22:34:27,799] post-conditon : close browser
+[INFO ] [2022-02-17 22:36:11,259] pre-condition - Step 01: open browser  COCCOC
+[INFO ] [2022-02-17 22:36:13,828] post-conditon : close browser
+[INFO ] [2022-02-17 23:19:12,386] pre-condition - Step 01: open browser  coccoc
+[INFO ] [2022-02-17 23:19:16,058] post-conditon : close browser
+[INFO ] [2022-02-17 23:23:43,891] pre-condition - Step 01: open browser  coccoc
+[INFO ] [2022-02-17 23:23:48,788] post-conditon : close browser
+[INFO ] [2022-02-17 23:24:52,612] pre-condition - Step 01: open browser  coccoc
+[INFO ] [2022-02-17 23:25:01,352] post-conditon : close browser
+[INFO ] [2022-02-17 23:26:44,587] pre-condition - Step 01: open browser  coccoc
+[INFO ] [2022-02-17 23:26:52,739] post-conditon : close browser
+[INFO ] [2022-02-17 23:27:55,625] pre-condition - Step 01: open browser  coccoc
+[INFO ] [2022-02-17 23:28:14,658] pre-condition - Step 02: Verify Home page is displayed
+[INFO ] [2022-02-17 23:28:14,691] User_01_Register - Step 03: click to Register link 
+[INFO ] [2022-02-17 23:28:15,539] User_01_Register - Step 04: enter to firstName textbox  ' Automation'
+[INFO ] [2022-02-17 23:28:57,143] User_02_Login_User - Step 12: click to Login link 
+[INFO ] [2022-02-17 23:28:58,826] User_02_Login_User - Step 13: Verify Login page is displayed afc6890@gmail.com123456
+[INFO ] [2022-02-17 23:29:00,475] User_02_Login_User - Step 14: Verify My account link is displayed 
+[INFO ] [2022-02-17 23:29:40,545] post-conditon : close browser
+[INFO ] [2022-02-17 23:29:41,310] OS name = windows 7
+[INFO ] [2022-02-17 23:29:41,310] Driver instance name = windows 7
+[INFO ] [2022-02-17 23:29:41,311] Session ID is null. Using WebDriver after calling quit()?
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
+System info: host: 'ADMIN', ip: '192.168.1.6', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.8.0_211'
+Driver info: driver.version: RemoteWebDriver

@@ -2,5 +2,5 @@ package javaOOP;
 
 public enum BrowserList {
 
-	CHROME, FIREFOX, IE, EDGE, OPERA, SAFARI;
+	CHROME, FIREFOX, IE, EDGE, OPERA, SAFARI, COCCOC;
 }

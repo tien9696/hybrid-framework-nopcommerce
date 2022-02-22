@@ -16,5 +16,8 @@ public static final String UPLOAD_FILE = "https://blueimp.github.io/jQuery-File-
 public static final String HRM = "https://opensource-demo.orangehrmlive.com/index.php/dashboard";
 
 	public static final String SAUCELAB = "https://www.saucedemo.com/";
+	public static final String BANK_GURU = "http://demo.guru99.com/v4/";
+
+	
 
 }
