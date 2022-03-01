@@ -1,4 +1,4 @@
-package com.hrm.employee;
+package com.hrm.cloud;
 
 import org.testng.annotations.Test;
 
@@ -23,6 +23,7 @@ import pageObjects.nopCommerce.user.UserRegisterPageObject;
 import pageObjects.nopCommerce.user.UserRewardpointsPage;
 
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 import java.util.Random;
@@ -34,7 +35,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 
-public class Level_16_Live_Coding extends BaseTest {
+public class Level_16_Live_Coding_Browserstack extends BaseTest {
 
 	private WebDriver driver;
 	LoginPageObject loginPage;
@@ -48,12 +49,12 @@ public class Level_16_Live_Coding extends BaseTest {
 
 	private String projectPath = System.getProperty("user.dir");
 
-	@Parameters("browser")
+	@Parameters({"browser", "envName", "severName", "osName", "ipAddress", "portNumber", "osVersion"})
 	@BeforeClass
-	public void beforeClass(String browserName) {
+	public void beforeClass(@Optional("firefox")String browserName, String osName,@Optional("dev") String severName, @Optional("localhost")String ipAddress,@Optional("4444") String portNumber, String envName, String osVersion) {
 
 		log.info("pre-condition - Step 01: open browser  " + browserName);
-		driver = getBrowserDriver(browserName);
+		driver = getBrowserDriver(browserName, severName, envName, ipAddress, portNumber, osName, osVersion);
 		loginPage = PageGenerator.getLoginPage(driver);
 
 		statusValue = "Enable";

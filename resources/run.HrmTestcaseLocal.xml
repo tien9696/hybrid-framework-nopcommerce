@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Hrm">
+
+<parameter name="envName" value="local"></parameter>
+<parameter name="severName" value="dev"></parameter>
+
+	<listeners>
+		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+		<listener
+			class-name="org.uncommons.reportng.JUnitXMLReporter" />
+		<listener class-name="commons.MethodListener" />
+		<listener class-name="reportConfig.ReportNGListener" />
+
+
+	</listeners>
+
+
+	<!-- <test name="Run On Chrome"> -->
+
+	<!-- <parameter name="browser" value="chrome" /> -->
+	<!-- <classes> -->
+	<!-- <class -->
+	<!-- name="com.hrm.employee.Level_16_Live_Coding" /> -->
+	<!-- </classes> -->
+	<!-- </test> -->
+
+
+
+	<test name="Run On Firefox">
+		<parameter name="browser" value="firefox" />
+
+		<classes>
+
+			<class name="com.hrm.cloud.Level_16_Live_Coding_All" />
+		</classes>
+	</test>
+
+</suite> 

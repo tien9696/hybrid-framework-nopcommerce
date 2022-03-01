@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Hrm">
+<suite name="User - NopCommerce">
+		<parameter name="url" value="https://demo.guru99.com/v2/" />
 
 	<listeners>
 		<listener class-name="org.uncommons.reportng.HTMLReporter" />
@@ -12,24 +13,13 @@
 
 	</listeners>
 
-
-<!-- <test name="Run On Chrome">  -->
-	
-<!-- 		<parameter name="browser" value="chrome" /> -->
-<!-- 		<classes> -->
-<!-- 			<class -->
-<!-- 				name="com.hrm.employee.Level_16_Live_Coding" /> -->
-<!-- 		</classes> -->
-<!-- 	</test>  -->
-	
-
-
-	<test name="Run On chrome">  
+	<test name="Run On Chrome">
 		<parameter name="browser" value="chrome" />
 		<classes>
-
-			<class name="com.hrm.employee.Level_16_Live_Coding" />
+			<class name="com.hrm.employee.Level_21_Multiple_Enviroment1" />
 		</classes>
-	</test>  
+	</test>
+
+
 
 </suite> 

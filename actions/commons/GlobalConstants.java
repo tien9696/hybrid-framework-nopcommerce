@@ -19,5 +19,15 @@ public static final String HRM = "https://opensource-demo.orangehrmlive.com/inde
 	public static final String BANK_GURU = "http://demo.guru99.com/v4/";
 
 	
-
+	public static final String BROWSER_USERNAME = "cmtin_5iy16h";
+	public static final String BROWSER_AUTOMATE_KEY = "RWcsaxzK99x8rsL3xoij";
+	public static final String BROWSER_STACK_URL = "https://" + BROWSER_USERNAME + ":" + BROWSER_AUTOMATE_KEY + "@hub-cloud.browserstack.com/wd/hub";
+	   //  "https://" + AUTOMATE_USERNAME + ":" + AUTOMATE_ACCESS_KEY + "@hub-cloud.browserstack.com/wd/hub";
+	
+	
+	public static final String SAUCELABS_USERNAME = "oauth-tiencam9696-d5474";
+	public static final String SAUCESlAB_AUTOMATE_KEY = "537e4596-f5d3-48f5-ba3a-94c7a2896e53";
+	public static final String SAUCESLABS_URL = "https://" + BROWSER_USERNAME + ":" + BROWSER_AUTOMATE_KEY + "@ondemand.us-west-1.saucelabs.com:443/wd/hub";
+	
+	
 }

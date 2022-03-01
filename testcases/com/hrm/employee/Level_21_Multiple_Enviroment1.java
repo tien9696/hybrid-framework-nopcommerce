@@ -24,6 +24,7 @@ import pageObjects.nopCommerce.user.UserRegisterPageObject;
 import pageObjects.nopCommerce.user.UserRewardpointsPage;
 
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 import java.util.Random;
@@ -42,13 +43,12 @@ public class Level_21_Multiple_Enviroment1 extends BaseTest {
 	private WebDriver driver;
 	
 
-	@Parameters({"browser", "url"})
+	@Parameters({"browser", "envName", "severName", "osName", "ipAddress", "portNumber", "osVersion"})
 	@BeforeClass
-	public void beforeClass(String browserName, String appUrl) {
-		ConfigFactory.setProperty("env", appUrl);
-		enviroment = ConfigFactory.create(Enviroment.class);
+	public void beforeClass(@Optional("firefox")String browserName, String osName,@Optional("dev") String severName, @Optional("localhost")String ipAddress,@Optional("4444") String portNumber, String envName, String osVersion) {
 
-		driver = getBrowserDriver( browserName, enviroment.applicationUrl());
+		log.info("pre-condition - Step 01: open browser  " + browserName);
+		driver = getBrowserDriver(browserName, enviroment.applicationUrl(), envName, ipAddress, portNumber, osName, osVersion);
 		
 		System.out.println(enviroment.osName());
 		System.out.println(driver.getCurrentUrl());
