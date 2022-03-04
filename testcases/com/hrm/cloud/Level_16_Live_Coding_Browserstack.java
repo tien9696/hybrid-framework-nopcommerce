@@ -49,12 +49,12 @@ public class Level_16_Live_Coding_Browserstack extends BaseTest {
 
 	private String projectPath = System.getProperty("user.dir");
 
-	@Parameters({"browser", "envName", "severName", "osName", "ipAddress", "portNumber", "osVersion"})
+	@Parameters({"browser", "envName", "severName", "osName", "osVersion"})
 	@BeforeClass
-	public void beforeClass(@Optional("firefox")String browserName, String osName,@Optional("dev") String severName, @Optional("localhost")String ipAddress,@Optional("4444") String portNumber, String envName, String osVersion) {
+	public void beforeClass(String browserName, String osName, String severName, String envName, String osVersion) {
 
 		log.info("pre-condition - Step 01: open browser  " + browserName);
-		driver = getBrowserDriver(browserName, severName, envName, ipAddress, portNumber, osName, osVersion);
+		driver = getBrowserDriver(browserName, severName, envName, osName, osVersion);
 		loginPage = PageGenerator.getLoginPage(driver);
 
 		statusValue = "Enable";

@@ -40,7 +40,6 @@
 	<classpathentry kind="lib" path="libWebDriverManager5/jsr305-3.0.2.jar"/>
 	<classpathentry kind="lib" path="libWebDriverManager5/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar"/>
 	<classpathentry kind="lib" path="libWebDriverManager5/slf4j-api-1.7.32.jar"/>
-	<classpathentry kind="lib" path="libWebDriverManager5/webdrivermanager-5.0.2.jar"/>
 	<classpathentry kind="lib" path="libLogging/commons-logging-1.2.jar"/>
 	<classpathentry kind="lib" path="libLogging/log4j-1.2.16.jar"/>
 	<classpathentry kind="lib" path="libLogging/commons-lang3-3.8.1.jar"/>
@@ -71,5 +70,6 @@
 	<classpathentry kind="lib" path="libOwner/junit-4.12.jar"/>
 	<classpathentry kind="lib" path="libOwner/mockito-core-2.15.0.jar"/>
 	<classpathentry kind="lib" path="libOwner/owner-1.0.10.jar" sourcepath="C:/Users/ADMINI~1/AppData/Local/Temp/.org.sf.feeling.decompiler1645516341755/source/owner-1.0.10-sources.jar"/>
+	<classpathentry kind="lib" path="libWebDriverManager/webdrivermanager-4.2.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

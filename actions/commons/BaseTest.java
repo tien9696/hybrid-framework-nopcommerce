@@ -83,9 +83,58 @@ public class BaseTest {
 	
 	
 	
+	protected WebDriver getBrowserDriver(String browserName, String severName, String envName, String osName, String osVersion) {
+		switch (envName) {
+		case "local":
+			driverBaseTest = new LocalFactory(browserName).createDriver();
+			break;
+		
+		case "browserStack":
+			driverBaseTest = new browserStackFactory(browserName, osName, osVersion).createDriver();
+
+			break;
+		case "saucelabs":
+			driverBaseTest = new saucelabsFactory(browserName, osName).createDriver();
+
+			break;
+
+		default:
+			driverBaseTest = new LocalFactory(browserName).createDriver();
+
+			break;
+		}
+		driverBaseTest.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		 driverBaseTest.get(getEnviromentValuee(severName));
+		
+
+		
+		return driverBaseTest;
+	}
 	
-	
-	
+	protected WebDriver getBrowserDriver(String browserName, String severName, String envName, String osName) {
+		switch (envName) {
+		case "local":
+			driverBaseTest = new LocalFactory(browserName).createDriver();
+			break;
+		
+		
+		case "saucelabs":
+			driverBaseTest = new saucelabsFactory(browserName, osName).createDriver();
+
+			break;
+
+		default:
+			driverBaseTest = new LocalFactory(browserName).createDriver();
+
+			break;
+		}
+		driverBaseTest.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		 driverBaseTest.get(getEnviromentValuee(severName));
+		
+
+		
+		return driverBaseTest;
+	}
 	
 	private String projectPath = System.getProperty("user.dir");
 
@@ -109,7 +158,7 @@ public class BaseTest {
 			throw new RuntimeException("Browser name invalid");
 		}
 		driverBaseTest.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		// driverBaseTest.get(getEnviromentValuee(appUrl));
+		 driverBaseTest.get(GlobalConstants.POTAL_PAGE_URL);
 		
 		return driverBaseTest;
 	}

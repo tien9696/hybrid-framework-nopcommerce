@@ -49,12 +49,12 @@ public class Level_16_Live_Coding_SaucesLabs extends BaseTest {
 
 	private String projectPath = System.getProperty("user.dir");
 
-	@Parameters({"browser", "envName", "severName", "osName", "ipAddress", "portNumber", "osVersion"})
+	@Parameters({"browser", "envName", "severName", "osName" })
 	@BeforeClass
-	public void beforeClass(@Optional("firefox")String browserName, String osName,@Optional("dev") String severName, @Optional("localhost")String ipAddress,@Optional("4444") String portNumber, String envName, String osVersion) {
+	public void beforeClass(String browserName, String osName, String severName, String envName) {
 
 		log.info("pre-condition - Step 01: open browser  " + browserName);
-		driver = getBrowserDriver(browserName, severName, envName, ipAddress, portNumber, osName, osVersion);
+		driver = getBrowserDriver(browserName, severName, envName, osName);
 		loginPage = PageGenerator.getLoginPage(driver);
 
 		statusValue = "Enable";

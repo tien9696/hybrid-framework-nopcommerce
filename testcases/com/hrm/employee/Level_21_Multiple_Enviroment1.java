@@ -43,15 +43,13 @@ public class Level_21_Multiple_Enviroment1 extends BaseTest {
 	private WebDriver driver;
 	
 
-	@Parameters({"browser", "envName", "severName", "osName", "ipAddress", "portNumber", "osVersion"})
+	@Parameters({"browser"})
 	@BeforeClass
-	public void beforeClass(@Optional("firefox")String browserName, String osName,@Optional("dev") String severName, @Optional("localhost")String ipAddress,@Optional("4444") String portNumber, String envName, String osVersion) {
+	public void beforeClass(@Optional("firefox")String browserName) {
 
 		log.info("pre-condition - Step 01: open browser  " + browserName);
-		driver = getBrowserDriver(browserName, enviroment.applicationUrl(), envName, ipAddress, portNumber, osName, osVersion);
+		driver = getBrowserDriver(browserName);
 		
-		System.out.println(enviroment.osName());
-		System.out.println(driver.getCurrentUrl());
 			}
 
 	@Test

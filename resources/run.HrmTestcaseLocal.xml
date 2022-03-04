@@ -32,7 +32,7 @@
 
 		<classes>
 
-			<class name="com.hrm.cloud.Level_16_Live_Coding_All" />
+			<class name="com.hrm.cloud.Level_16_Live_Coding_All_Not_Grid" />
 		</classes>
 	</test>
 
