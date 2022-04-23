@@ -47,7 +47,7 @@ public class Level_20_Data_Test_II_TestNG_XML extends BaseTest {
 	MyInfoPO myInfoPage;
 	
 	String employeeID;
-	String avatarFilePath = GlobalConstants.UPLOAD_FOLDER_PATH + "2.png";
+	String avatarFilePath = GlobalConstants.getGlobalConstants().getUploadFolderPath() + "2.png";
 
 	private String projectPath = System.getProperty("user.dir");
 

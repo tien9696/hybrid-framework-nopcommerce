@@ -601,7 +601,7 @@ public class BasePage {
 
 	}
 
-	// User - nopcommerce
+	// User - nopcommerce - Switch page
 	public UserAddressPageObject openAddressPage(WebDriver driver) {
 		waitForElementClickable(driver, UserBasePageUIs.ADDRESS_LINK);
 		clickToElement(driver, UserBasePageUIs.ADDRESS_LINK);
@@ -663,7 +663,7 @@ public class BasePage {
 	}
 
 	public void upLoadFileAtCardName(WebDriver driver, String cardName, String... fileNames) {
-		String filePath = GlobalConstants.UPLOAD_FOLDER_PATH;
+		String filePath = GlobalConstants.getGlobalConstants().getUploadFolderPath();
 		String fullFileName = "";
 		for (String file : fileNames) {
 			fullFileName = fullFileName + filePath + file + "\n";
@@ -675,7 +675,7 @@ public class BasePage {
 
 	public void uploadMultipleFiles(WebDriver driver, String... fileNames) {
 		// đưỡng dẫn của thư mục upload file(win, mac, linux)
-		String filePath2 = GlobalConstants.UPLOAD_FOLDER_PATH;
+		String filePath2 = GlobalConstants.getGlobalConstants().getUploadFolderPath();
 		String fullName2 = "";
 		for (String file : fileNames) {
 			fullName2 = fullName2 + filePath2 + file + "\n";

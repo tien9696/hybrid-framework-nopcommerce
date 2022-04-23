@@ -15,7 +15,6 @@ public class Topic_04_Excercise {
 		System.out.println(a);
 		System.out.println(b);
      }
-	
 		
 		
 	}

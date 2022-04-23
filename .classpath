@@ -49,7 +49,6 @@
 	<classpathentry kind="lib" path="reportTestNG/velocity-1.4.jar"/>
 	<classpathentry kind="lib" path="libExtendV3/bsh-2.0b4.jar"/>
 	<classpathentry kind="lib" path="libExtendV3/bson-3.3.0.jar"/>
-	<classpathentry kind="lib" path="libExtendV3/extentreports-3.1.2-javadoc.jar"/>
 	<classpathentry kind="lib" path="libExtendV3/freemarker-2.3.23.jar"/>
 	<classpathentry kind="lib" path="libExtendV3/httpmime-4.5.2.jar"/>
 	<classpathentry kind="lib" path="libExtendV3/jcommander-1.48.jar"/>
@@ -71,5 +70,11 @@
 	<classpathentry kind="lib" path="libOwner/mockito-core-2.15.0.jar"/>
 	<classpathentry kind="lib" path="libOwner/owner-1.0.10.jar" sourcepath="C:/Users/ADMINI~1/AppData/Local/Temp/.org.sf.feeling.decompiler1645516341755/source/owner-1.0.10-sources.jar"/>
 	<classpathentry kind="lib" path="libWebDriverManager/webdrivermanager-4.2.0.jar"/>
+	<classpathentry kind="lib" path="libraries/lombok-1.18.22.jar"/>
+	<classpathentry kind="lib" path="libExtendsReportV2/bson-3.0.4.jar"/>
+	<classpathentry kind="lib" path="libExtendsReportV2/extentreports-2.41.2.jar"/>
+	<classpathentry kind="lib" path="libExtendsReportV2/jsoup-1.8.3.jar"/>
+	<classpathentry kind="lib" path="libExtendsReportV2/sqlite-jdbc-3.8.11.1.jar"/>
+	<classpathentry kind="lib" path="libExtendsReportV2/testng-6.9.9.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

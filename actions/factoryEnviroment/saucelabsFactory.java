@@ -34,7 +34,7 @@ public class saucelabsFactory {
 		capability.setCapability("sauce:options", sauceOptions);
 
 		try {
-			driver = new RemoteWebDriver(new URL(GlobalConstants.SAUCESLABS_URL), capability);
+			driver = new RemoteWebDriver(new URL(GlobalConstants.getGlobalConstants().getSAUCESLABS_URL()), capability);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}

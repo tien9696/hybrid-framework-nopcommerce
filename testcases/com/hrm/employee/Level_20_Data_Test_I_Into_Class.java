@@ -49,7 +49,7 @@ public class Level_20_Data_Test_I_Into_Class extends BaseTest {
 	DataUtil fakeData;
 	String employeeID, statusValue, firstName, lastName, userName, Password, adminUserName, adminPassword, fullName;
 	String editEmployeeFirstName, editEmployeeLastName, editEmployeeGender, editEmpMaritalStatus, editNationality;
-	String avatarFilePath = GlobalConstants.UPLOAD_FOLDER_PATH + "2.png";
+	String avatarFilePath = GlobalConstants.getGlobalConstants().getUploadFolderPath() + "2.png";
 
 	private String projectPath = System.getProperty("user.dir");
 

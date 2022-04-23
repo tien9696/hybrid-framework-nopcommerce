@@ -51,7 +51,7 @@ public class Level_20_Data_Test_III_Out_Class extends BaseTest {
 
 	String employeeID, statusValue, firstName, lastName, userName, Password, adminUserName, adminPassword, fullName;
 	String editEmployeeFirstName, editEmployeeLastName, editEmployeeGender, editEmpMaritalStatus, editNationality;
-	String avatarFilePath = GlobalConstants.UPLOAD_FOLDER_PATH + "2.png";
+	String avatarFilePath = GlobalConstants.getGlobalConstants().getUploadFolderPath() + "2.png";
 
 	private String projectPath = System.getProperty("user.dir");
 

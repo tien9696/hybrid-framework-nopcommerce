@@ -169,13 +169,14 @@ public class Topic_07_Switch_Case {
 			
 		}
 		
-		
+		@Test
 		public void TC_06() {
 
 			int firstNumber  =  scanner.nextInt();
 			int secondNumber  =  scanner.nextInt();
 			String operator = scanner.next();
 
+			// ex: 4 5 * or 3 4  +
 			switch (operator) {
 			case "+":
 				System.out.println("A + B = " + (firstNumber + secondNumber) );

@@ -5,7 +5,8 @@ import java.util.Scanner;
 import org.testng.annotations.Test;
 
 public class Topic_09_Do_While {
-	Scanner scanner = new Scanner(System.in);
+	static Scanner scanner = new Scanner(System.in);
+	static String Name = "An";
 
 	
 	public void TC_03() {
@@ -72,7 +73,6 @@ public class Topic_09_Do_While {
 
 	}
 
-
 	public void TC_08() {
 		int number = scanner.nextInt();
 
@@ -82,5 +82,21 @@ public class Topic_09_Do_While {
 			number--;
 		}
 		System.out.println(i);
+	}
+	
+	public static void main(String[] args) {
+		
+		int i = 0;
+		/*do {
+			System.out.println(i);
+			i+=1;
+		}while(i < 10);
+	*/
+
+	
+	while (i<10) {
+		System.out.println(i);
+	i+=1;	
+	} 
 	}
 }
